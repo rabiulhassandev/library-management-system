@@ -1,32 +1,45 @@
-<div class="vertical-menu">
-
-    <div data-simplebar class="h-100">
-        <div class="user-sidebar text-center">
-            <div class="dropdown">
-                <div class="user-img">
-                    <img src="{{ auth()->user()->profile_photo_url }}" alt="" class="rounded-circle">
-                    <span class="avatar-online bg-success"></span>
-                </div>
-                <div class="user-info">
-                    <h5 class="mt-3 font-size-16 text-white">{{ auth()->user()->name }}</h5>
-                    <span class="font-size-13 text-white-50">{{ get_user_role()->name}}</span>
-                </div>
-            </div>
-        </div>
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-            <!-- Left Menu Start -->
-            <ul class="metismenu list-unstyled" id="side-menu">
-                <x-admin-nav-link title="Dashboard" />
+<div class="iq-sidebar">
+    <div class="iq-sidebar-logo d-flex justify-content-between">
+       <a href="/dashboard" class="header-logo">
+          {{-- <img src="{{ admin_asset('images/logo.png') }}" class="img-fluid rounded-normal" alt=""> --}}
+          <div class="logo-title">
+             <span class="text-primary text-uppercase">ছদাহা ডিজিটাল লাইব্রেরি</span>
+          </div>
+       </a>
+       <div class="iq-menu-bt-sidebar">
+          <div class="iq-menu-bt align-self-center">
+             <div class="wrapper-menu">
+                <div class="main-circle"><i class="las la-bars"></i></div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div id="sidebar-scrollbar">
+       <nav class="iq-sidebar-menu">
+          <ul id="iq-sidebar-toggle" class="iq-menu">
+            {{-- <li class="active">
+               <a href="/dashboard"><span class="ripple rippleEffect"></span><i class="ri-home-7-line"></i><span>ড্যাশবোর্ড</span></a>
+            </li>
+             <li>
+                <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-function-line"></i><span>ক্যাটাগরি</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li><a href="/dashboard/add-category"><i class="ri-add-box-line"></i>নতুন ক্যাটাগরি</a></li>
+                   <li><a href="/dashboard/categories"><i class="ri-function-line"></i>ক্যাটাগরি লিস্ট</a></li>
+                </ul>
+             </li>
+             <li>
+                <a href="/dashboard/blank"><span class="ripple rippleEffect"></span><i class="ri-file-line"></i><span>খালি পেইজ</span></a>
+             </li> --}}
                 <x-admin-nav-link href="{{ route('admin.dashboard') }}">
-                    <i class="dripicons-home"></i>
-                    <span> Dashboard </span>
+                    <i class="ri-home-7-line"></i><span>ড্যাশবোর্ড</span>
                 </x-admin-nav-link>
 
                 @if (can('user_browse') or can('role_browse') or can('permission_browse'))
                 {{--Users --}}
-                <x-admin-nav-link title="Users Mangment" />
+
+                <x-admin-nav-link-collapse title="User Managenemt">
+
+
                 {{-- Users --}}
                 @can('user_browse')
                 <x-admin-nav-link href="{{ route('admin.user.index') }}">
@@ -35,6 +48,7 @@
                     <span>User Managment</span>
                 </x-admin-nav-link>
                 @endcan
+
                 {{-- Role --}}
                 @can('user_status_management')
                 <x-admin-nav-link href="{{ route('admin.user-status.index') }}">
@@ -59,13 +73,13 @@
                     <span>Permission</span>
                 </x-admin-nav-link>
                 @endcan
+                </x-admin-nav-link-collapse>
                 @endif
 
                 {{-----------------------------------------------------------
                 ---------------- Portfolio Managment Start ---------------
                 -------------------------------------------------------------}}
                 @can('page_builder')
-                <x-admin-nav-link title="Dynamic Page" />
                 <x-admin-nav-link href="{{ route('admin.page-builder.index') }}">
                     <i class="far fa-building"></i>
                     <span></span>
@@ -77,7 +91,6 @@
                 -------------------------------------------------------------}}
 
                 @can('report_issue_management')
-                <x-admin-nav-link title="Report" />
 
                 <x-admin-nav-link href="{{ route('admin.report-issue.index') }}">
                     <i class="fas fa-cogs"></i>
@@ -87,7 +100,6 @@
                 @endcan
                 {{--Setting --}}
                 @if(can('setting_management'))
-                <x-admin-nav-link title="Tools" />
                 @endif
                 @can('setting_management')
                 <x-admin-nav-link href="{{ route('admin.settings.index') }}">
@@ -96,8 +108,7 @@
                     <span></span>
                 </x-admin-nav-link>
                 @endcan
-            </ul>
-        </div>
-        <!-- Sidebar -->
+          </ul>
+       </nav>
     </div>
-</div>
+ </div>

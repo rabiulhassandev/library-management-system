@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'SolaimanLipi', sans-serif;
+    font-weight: 700;
+}
+
+.bn-font{
+    font-family: 'SolaimanLipi', sans-serif !important;
+}
+.en-font{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+/* Button styles */
+
+.view-btn{
+    background-color: #03A9F4;
+}
+.view-btn:hover{
+    background-color: #0f7eb1;
+}
+.edit-btn{
+    background-color: #4ab64e;
+}
+.edit-btn:hover{
+    background-color: #266529;
+}
+.delete-btn{
+    background-color: #F44336;
+}
+.delete-btn:hover{
+    background-color: #a72d24;
+}
+
+.view-btn i, .edit-btn i, .delete-btn i{
+    color: white;
+    margin-right: 2px;
+}
+
+
+#dashboard-analytics .img-left{width:200px;position:absolute;top:0;left:0}#dashboard-analytics .img-right{width:175px;position:absolute;top:0;right:0}
+#dashboard-analytics .avatar{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+#dashboard-analytics .avatar .avatar-content i{
+    font-weight: bold;
+    font-size: 35px;
+}

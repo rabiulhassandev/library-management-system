@@ -1,77 +1,53 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        {{-- meta manager --}}
+        <x-meta-manager />
+        {{-- favicon --}}
+        <x-favicon />
+        {{-- style --}}
+        <x-admin.styles />
+   </head>
+   <body class="sidebar-main-active right-column-fixed">
+      <!-- loader Start -->
+      {{-- <x-dashboard.loader/> --}}
+      <!-- loader END -->
 
-<head>
-    {{-- meta manager --}}
-    <x-meta-manager />
-    {{-- favicon --}}
-    <x-favicon />
-    {{-- style --}}
-    <x-admin.styles />
-</head>
+      <!-- Wrapper Start -->
+      <div class="wrapper">
 
+         <!-- Sidebar  -->
+         <x-admin.left-sidebar />
+        <!-- End Sidebar -->
 
-<body>
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-        <!-- vue page -->
-        <div id="vue-app">
-            <!-- start header -->
-            <x-admin.header />
-            <!-- end header -->
+         <!-- TOP Nav Bar -->
+         <x-admin.header />
+         <!-- TOP Nav Bar END -->
 
-            <!-- start header -->
-            <x-admin.left-sidebar />
-            <!-- end header -->
-
-
-            <div class=" main-content">
-
-                <div class="page-content">
-                    <!-- start page title -->
-                    {{ $breadcrumb??'' }}
-                    <!-- end page title -->
-
-                    <div class="container-fluid">
-                        <div class="page-content-wrapper">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    {{ $slot }}
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-
-                <!-- start footer -->
-                <x-admin.footer />
-                <!-- end footer -->
-
+         <!-- Page Content  -->
+         <div id="content-page" class="content-page">
+            <div class="container-fluid">
+               {{ $slot }}
             </div>
-            <!--end  vue page -->
-            <!-- end main content-->
-        </div>
+         </div>
+      </div>
+      <!-- Wrapper END -->
 
-    </div>
-    <!-- END layout-wrapper -->
+       <!-- Footer -->
+       <x-admin.footer />
+        <!-- Footer END -->
 
-    <!-- Right Sidebar -->
+        <!-- right side bar START -->
+        <x-admin.right-sidebar />
+        <!-- right side bar END -->
 
-    <x-admin.right-sidebar />
-    <!-- /Right-bar -->
-
-    <!-- Right bar overlay-->
-    <div class="rightbar-overlay"></div>
-
-    <!-- start scripts -->
-    <x-admin.scripts />
-    <!-- end scripts -->
-    <x-fb-live-chat />
-    <x-toster-session />
-    <x-delete />
-    <x-google-translate />
-</body>
+        <!-- start scripts -->
+        <x-admin.scripts />
+        <!-- end scripts -->
+        <x-fb-live-chat />
+        <x-toster-session />
+        <x-delete />
+        <x-google-translate />
+   </body>
 
 </html>

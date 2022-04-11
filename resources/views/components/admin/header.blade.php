@@ -1,132 +1,122 @@
-<header id="page-topbar">
-    <div class="navbar-header">
-        <div class="d-flex">
-
-            <!-- LOGO -->
-            <div class="navbar-brand-box">
-                <a href="{{ config('app.url') }}" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <x-logo type="sm" />
-                    </span>
-                    <span class="logo-lg">
-                        <x-logo type="dark" />
-                    </span>
+<div class="iq-top-navbar">
+    <div class="iq-navbar-custom">
+       <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <div class="iq-menu-bt d-flex align-items-center">
+             <div class="wrapper-menu">
+                <div class="main-circle"><i class="las la-bars"></i></div>
+             </div>
+             <div class="iq-navbar-logo d-flex justify-content-between">
+                <a href="index.html" class="header-logo">
+                   {{-- <img src="{{ admin_asset('images/logo.png') }}" class="img-fluid rounded-normal" alt=""> --}}
+                   <div class="logo-title">
+                      <span class="text-primary text-uppercase">ছদাহা ডিজিটাল লাইব্রেরি</span>
+                   </div>
                 </a>
-
-                <a href="{{ config('app.url') }}" class="logo logo-light">
-                    <span class="logo-sm">
-                        <x-logo type="sm" />
-                    </span>
-                    <span class="logo-lg">
-                        <x-logo type="light" />
-                    </span>
-                </a>
-            </div>
-
-            <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
-                <i class="mdi mdi-menu"></i>
-            </button>
-        </div>
-
-        <!-- Search input -->
-        <div class="search-wrap" id="search-wrap">
-            <div class="search-bar">
-                <input class="search-input form-control" placeholder="Search" />
-                <a href="#" class="close-search toggle-search" data-target="#search-wrap">
-                    <i class="mdi mdi-close-circle"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="d-flex">
-
-            <div class="pt-2 d-lg-inline-block">
-                <a href="javascript:void(0);">
-                    <span class="nav-link waves-effect" id="google_translate_element"></span>
-                </a>
-            </div>
-
-            <div class="dropdown d-none d-lg-inline-block">
-                <button type="button" class="btn header-item toggle-search noti-icon waves-effect"
-                    data-target="#search-wrap">
-                    <i class="mdi mdi-magnify"></i>
-                </button>
-            </div>
-
-            <div class="dropdown d-none d-lg-inline-block ms-1">
-                <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
-                    <i class="mdi mdi-fullscreen"></i>
-                </button>
-            </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon waves-effect"
-                    id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <i class="mdi mdi-bell-outline bx-tada"></i>
-                    {{-- <span class="badge bg-danger rounded-pill">3</span> --}}
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                    aria-labelledby="page-header-notifications-dropdown">
-                    <div class="p-3">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h6 class="m-0"> Notifications </h6>
+             </div>
+          </div>
+          <div class="navbar-breadcrumb">
+             <h5 class="mb-0">পেইজ টাইটেল</h5>
+             <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="/dashboard">ড্যাশবোর্ড</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">পেইজ টাইটেল</li>
+                </ul>
+             </nav>
+          </div>
+          <div class="iq-search-bar">
+             <form action="#" class="searchbox">
+                <input type="text" class="text search-input" placeholder="সার্চ করুন...">
+                <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+             </form>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+          <i class="ri-menu-3-line"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav ml-auto navbar-list">
+                <li class="nav-item nav-icon search-content">
+                   <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
+                      <i class="ri-search-line"></i>
+                   </a>
+                   <form action="#" class="search-box p-0">
+                      <input type="text" class="text search-input" placeholder="Type here to search...">
+                      <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                   </form>
+                </li>
+                <li class="line-height pt-3">
+                   <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                      <img src="{{ auth()->user()->profile_photo_url }}" class="img-fluid rounded-circle mr-3" alt="user">
+                      <div class="caption">
+                         <h6 class="mb-1 line-height">{{ auth()->user()->name }}</h6>
+                         <p class="mb-0 text-primary">{{ get_user_role()->name }}</p>
+                      </div>
+                   </a>
+                   <div class="iq-sub-dropdown iq-user-dropdown">
+                      <div class="iq-card shadow-none m-0">
+                         <div class="iq-card-body p-0 ">
+                            <div class="bg-primary p-3">
+                               <h5 class="mb-0 text-white line-height">স্বাগতম {{ auth()->user()->name }}</h5>
+                               <span class="text-white font-size-12">সক্রিয় রয়েছেন</span>
                             </div>
-                            <div class="col-auto">
-                                {{-- <a href="#!" class="small"> View All</a> --}}
+                            <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                               <div class="media align-items-center">
+                                  <div class="rounded iq-card-icon iq-bg-primary">
+                                     <i class="ri-file-user-line"></i>
+                                  </div>
+                                  <div class="media-body ml-3">
+                                     <h6 class="mb-0 ">আপনার প্রোফাইল</h6>
+                                     <p class="mb-0 font-size-12">আপনার ব্যাক্তিগত প্রোফাইল দেখুন</p>
+                                  </div>
+                               </div>
+                            </a>
+                            <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
+                               <div class="media align-items-center">
+                                  <div class="rounded iq-card-icon iq-bg-primary">
+                                     <i class="ri-profile-line"></i>
+                                  </div>
+                                  <div class="media-body ml-3">
+                                     <h6 class="mb-0 ">আপডেট প্রোফাইল</h6>
+                                     <p class="mb-0 font-size-12">আপনার ব্যাক্তিগত প্রোফাইল আপডেট করুন</p>
+                                  </div>
+                               </div>
+                            </a>
+                            <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                               <div class="media align-items-center">
+                                  <div class="rounded iq-card-icon iq-bg-primary">
+                                     <i class="ri-account-box-line"></i>
+                                  </div>
+                                  <div class="media-body ml-3">
+                                     <h6 class="mb-0 ">একাউন্ট সেটিংস</h6>
+                                     <p class="mb-0 font-size-12">আপনার একাউন্ট সেটিংস ম্যানেজ করুন</p>
+                                  </div>
+                               </div>
+                            </a>
+                            <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                               <div class="media align-items-center">
+                                  <div class="rounded iq-card-icon iq-bg-primary">
+                                     <i class="ri-lock-line"></i>
+                                  </div>
+                                  <div class="media-body ml-3">
+                                     <h6 class="mb-0 ">প্রাইভেসি সেটিংস</h6>
+                                     <p class="mb-0 font-size-12">আপনার প্রাইভেসি সেটিংস পরিচালনা করুন</p>
+                                  </div>
+                               </div>
+                            </a>
+                            <div class="d-inline-block w-100 text-center p-3">
+                                <x-logout class="dropdown-item notify-item">
+                                    <span class="dropdown-item text-danger">
+                                        <i class="ri-login-box-line ml-2"></i>
+                                        Logout
+                                    </span>
+                                    {{-- <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">লগআউট করুন<i class="ri-login-box-line ml-2"></i></a> --}}
+                                </x-logout>
                             </div>
-                        </div>
-                    </div>
-                    <div data-simplebar style="max-height: 230px;">
-                        <p class="text-center text-muted pt-5 pb-5 notify-item">No Notification Found..</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ auth()->user()->profile_photo_url}}"
-                        alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">{{ auth()->user()->name }}</span>
-                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-end">
-                    <!-- item-->
-                    <a class="dropdown-item" href="{{ route('admin.user.profile') }}"><i
-                            class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i>
-                        Profile
-                    </a>
-                    <a class="dropdown-item" href="javascript:void();"><i
-                            class="mdi mdi-wallet-outline font-size-16 align-middle me-1"></i>
-                        My Wallet
-                    </a>
-
-                    <a class="dropdown-item d-block" href="{{ route('admin.user.profile.settings') }}">
-                        <i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i>
-                        Settings
-                    </a>
-                    <a class="dropdown-item" href="{{ route('admin.lock-screen') }}"><i
-                            class="mdi mdi-lock-open-outline font-size-16 align-middle me-1"></i>
-                        Lock Screen
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <x-logout class="dropdown-item notify-item">
-                        <span class="dropdown-item text-danger">
-                            <i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i>
-                            Logout
-                        </span>
-                    </x-logout>
-                </div>
-            </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                    <i class="mdi mdi-cog-outline font-size-20"></i>
-                </button>
-            </div>
-
-        </div>
+                         </div>
+                      </div>
+                   </div>
+                </li>
+             </ul>
+          </div>
+       </nav>
     </div>
-</header>
+ </div>
