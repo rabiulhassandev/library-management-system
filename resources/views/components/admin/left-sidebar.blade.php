@@ -37,13 +37,13 @@
                 @if (can('user_browse') or can('role_browse') or can('permission_browse'))
                 {{--Users --}}
 
-                <x-admin-nav-link-collapse title="User Managenemt">
+                <x-admin-nav-link-collapse title="User Managenemt" icon="ri-shield-user-line">
 
 
                 {{-- Users --}}
                 @can('user_browse')
                 <x-admin-nav-link href="{{ route('admin.user.index') }}">
-                    <i class="far fa-address-book"></i>
+                    <i class="ri-user-line"></i>
                     <span></span>
                     <span>User Managment</span>
                 </x-admin-nav-link>
@@ -52,7 +52,7 @@
                 {{-- Role --}}
                 @can('user_status_management')
                 <x-admin-nav-link href="{{ route('admin.user-status.index') }}">
-                    <i class="fas fa-users-cog"></i>
+                    <i class="ri-user-settings-line"></i>
                     <span></span>
                     <span> User Status </span>
                 </x-admin-nav-link>
@@ -60,7 +60,7 @@
                 {{-- Role --}}
                 @can('user_role_management')
                 <x-admin-nav-link href="{{ route('admin.role.index') }}">
-                    <i class="fas fa-users-cog"></i>
+                    <i class="ri-user-5-line"></i>
                     <span></span>
                     <span> Role </span>
                 </x-admin-nav-link>
@@ -68,7 +68,7 @@
                 {{-- Permission --}}
                 @can('user_permission_management')
                 <x-admin-nav-link href="{{ route('admin.permission.index') }}">
-                    <i class="fas fa-user-shield"></i>
+                    <i class="ri-user-follow-line"></i>
                     <span></span>
                     <span>Permission</span>
                 </x-admin-nav-link>
@@ -81,7 +81,7 @@
                 -------------------------------------------------------------}}
                 @can('page_builder')
                 <x-admin-nav-link href="{{ route('admin.page-builder.index') }}">
-                    <i class="far fa-building"></i>
+                    <i class="ri-pages-line"></i>
                     <span></span>
                     <span>Page Builder</span>
                 </x-admin-nav-link>
@@ -93,7 +93,7 @@
                 @can('report_issue_management')
 
                 <x-admin-nav-link href="{{ route('admin.report-issue.index') }}">
-                    <i class="fas fa-cogs"></i>
+                    <i class="ri-file-chart-line"></i>
                     <span>Report Issue</span>
                     <span></span>
                 </x-admin-nav-link>
@@ -103,7 +103,7 @@
                 @endif
                 @can('setting_management')
                 <x-admin-nav-link href="{{ route('admin.settings.index') }}">
-                    <i class="fas fa-cogs"></i>
+                    <i class="ri-settings-5-line"></i>
                     <span>Setting</span>
                     <span></span>
                 </x-admin-nav-link>

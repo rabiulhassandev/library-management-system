@@ -24,14 +24,14 @@
                     @if (config('theme.cdata.add'))
                     <a href="{{ config('theme.cdata.add') }}"
                         class="btn btn-primary btn-rounded waves-effect waves-light">
-                        <i class="far fa-plus-square"></i> Add New
+                        <i class="ri-add-box-line"></i> Add New
                     </a>
                     @endif
 
                     @if (config('theme.cdata.back'))
                     <a href="{{ config('theme.cdata.back') }}"
                         class="btn btn-info btn-rounded waves-effect waves-light">
-                        <i class="fas fa-reply"></i> Back
+                        <i class="ri-arrow-left-fill"></i> Back
                     </a>
                     @endif
                 </div>

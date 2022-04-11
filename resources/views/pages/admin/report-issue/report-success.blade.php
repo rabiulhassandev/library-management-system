@@ -18,7 +18,7 @@
         </x-slot>
         <div class="text-center">
             <a href="{{ back_url() }}" class="btn btn-info btn-rounded waves-effect waves-light">
-                <i class="fas fa-reply"></i> Back
+                <i class="ri-arrow-left-fill"></i> Back
             </a>
         </div>
     </x-box-card>

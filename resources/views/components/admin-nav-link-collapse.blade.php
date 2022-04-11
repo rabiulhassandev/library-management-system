@@ -4,7 +4,7 @@
 <li>
     <a href="#{{ $id }}" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
         <span class="ripple rippleEffect"></span>
-        <i class="ri-function-line"></i>
+        <i class="{{ $icon }}"></i>
         <span>{{ $title }}</span>
         <i class="ri-arrow-right-s-line iq-arrow-right"></i>
     </a>
