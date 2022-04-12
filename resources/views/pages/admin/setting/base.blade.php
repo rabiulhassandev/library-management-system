@@ -47,7 +47,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="panel-heading">
                                             <span class="h4">{{ $setting->display_name }}</span>
-                                            <code class="badge badge-pill badge-info text-light"
+                                            <code class="badge badge-pill badge-primary text-light"
                                                 style="color: #ffffff!importent; font-family: sans-serif; padding: 6px; background: #373e3d;">setting('{{ $setting->key }}')</code>
                                             <a href="javascript:void(0);" class="panel-action-btn clipboard"
                                                 data-clipboard-text="setting('{{ $setting->key }}')">

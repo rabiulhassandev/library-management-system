@@ -41,7 +41,7 @@
             <div class="table-responsive">
                 <x-data-table>
                     <thead>
-                        <tr>
+                        <tr class="bg-primary text-white text-center">
                             <th>SI</th>
                             <th>Name</th>
                             <th class="noExport">Action</th>

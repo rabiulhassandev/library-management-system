@@ -41,7 +41,7 @@
             <div class="table-responsive">
                 <x-data-table>
                     <thead>
-                        <tr>
+                        <tr class="bg-primary text-white text-center">
                             <th>SI</th>
                             <th>User Name</th>
                             <th>Email</th>

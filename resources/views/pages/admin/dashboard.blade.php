@@ -3,14 +3,14 @@
 
     <div class="row" id="dashboard-analytics">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card bg-primary text-white">
+            <div class="card bg-primary text-white py-4">
                 <div class="card-content">
                     <div class="card-body text-center">
                         <img src="https://kinoyeeexpress.com/admin-assets/images/elements/decore-left.png" alt="card-img-left" class="img-left"> <img src="https://kinoyeeexpress.com/admin-assets/images/elements/decore-right.png" alt="card-img-right" class="img-right">
                         <div class="avatar avatar-xl bg-primary shadow mt-0">
                             <div class="avatar-content"><i class="ri-award-line"></i></div>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center pt-2">
                             <h2 class="my-2 text-white">Welcome <span class="text-capitalize">Saiful Islam</span></h2>
                         </div>
                     </div>
