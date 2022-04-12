@@ -11,20 +11,27 @@
 </head>
 
 
-<body class="authentication-bg bg-primary">
+<body class="authentication-bg" style="background: url(https://wallpaperfordesktop.com/wp-content/uploads/2021/12/Gradient-Wallpaper.jpg); background-size: cover;">
     <!-- vue page -->
-    <div class=" home-center">
-        <div class="home-desc-center">
-            <div class="container">
-                <div id="vue-app">
-                    {{ $slot }}
-                </div>
-                <!-- end vue page -->
-            </div>
 
-
+    <div id="loading" style="display: none;">
+        <div id="loading-center">
         </div>
-        <!-- End Log In page -->
+    </div>
+
+    <section class="sign-in-page">
+        <div class="container p-0">
+            <div class="row no-gutters height-self-center">
+                <div class="col-sm-12 align-self-center page-content rounded">
+                    <div class="row m-0">
+                        <div class="col-sm-12 sign-in-page-data">
+                            {{ $slot }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 {{-- scripts --}}
 <x-admin.scripts />

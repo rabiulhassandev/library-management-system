@@ -104,7 +104,7 @@
                             </a>
                             <div class="d-inline-block w-100 text-center p-3">
                                 <x-logout class="dropdown-item notify-item">
-                                    <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">লগআউট করুন<i class="ri-login-box-line ml-2"></i></a>
+                                    <button class="bg-primary iq-sign-btn" role="button">লগআউট করুন<i class="ri-login-box-line ml-2"></i></button>
                                 </x-logout>
                             </div>
                          </div>
