@@ -3,7 +3,7 @@
        <a href="/dashboard" class="header-logo">
           {{-- <img src="{{ admin_asset('images/logo.png') }}" class="img-fluid rounded-normal" alt=""> --}}
           <div class="logo-title">
-             <span class="text-primary text-uppercase">ছদাহা ডিজিটাল লাইব্রেরি</span>
+             <span class="text-primary text-uppercase">Online Library</span>
           </div>
        </a>
        <div class="iq-menu-bt-sidebar">
@@ -17,21 +17,8 @@
     <div id="sidebar-scrollbar">
        <nav class="iq-sidebar-menu">
           <ul id="iq-sidebar-toggle" class="iq-menu">
-            {{-- <li class="active">
-               <a href="/dashboard"><span class="ripple rippleEffect"></span><i class="ri-home-7-line"></i><span>ড্যাশবোর্ড</span></a>
-            </li>
-             <li>
-                <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-function-line"></i><span>ক্যাটাগরি</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="/dashboard/add-category"><i class="ri-add-box-line"></i>নতুন ক্যাটাগরি</a></li>
-                   <li><a href="/dashboard/categories"><i class="ri-function-line"></i>ক্যাটাগরি লিস্ট</a></li>
-                </ul>
-             </li>
-             <li>
-                <a href="/dashboard/blank"><span class="ripple rippleEffect"></span><i class="ri-file-line"></i><span>খালি পেইজ</span></a>
-             </li> --}}
                 <x-admin-nav-link href="{{ route('admin.dashboard') }}">
-                    <i class="ri-home-7-line"></i><span>ড্যাশবোর্ড</span>
+                    <i class="ri-home-7-line"></i><span>Dashboard</span>
                 </x-admin-nav-link>
 
                 @if (can('user_browse') or can('role_browse') or can('permission_browse'))

@@ -9,23 +9,23 @@
                 <a href="index.html" class="header-logo">
                    {{-- <img src="{{ admin_asset('images/logo.png') }}" class="img-fluid rounded-normal" alt=""> --}}
                    <div class="logo-title">
-                      <span class="text-primary text-uppercase">ছদাহা ডিজিটাল লাইব্রেরি</span>
+                      <span class="text-primary text-uppercase">Online Library</span>
                    </div>
                 </a>
              </div>
           </div>
-          <div class="navbar-breadcrumb">
-             <h5 class="mb-0">পেইজ টাইটেল</h5>
+          <div class="navbar-breadcrumb d-none">
+             <h5 class="mb-0">Page Title</h5>
              <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
-                   <li class="breadcrumb-item"><a href="/dashboard">ড্যাশবোর্ড</a></li>
-                   <li class="breadcrumb-item active" aria-current="page">পেইজ টাইটেল</li>
+                   <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">Page Title</li>
                 </ul>
              </nav>
           </div>
           <div class="iq-search-bar">
              <form action="#" class="searchbox">
-                <input type="text" class="text search-input" placeholder="সার্চ করুন...">
+                <input type="text" class="text search-input" placeholder="Search Here...">
                 <a class="search-link" href="#"><i class="ri-search-line"></i></a>
              </form>
           </div>
@@ -55,8 +55,8 @@
                       <div class="iq-card shadow-none m-0">
                          <div class="iq-card-body p-0 ">
                             <div class="bg-primary p-3">
-                               <h5 class="mb-0 text-white line-height">স্বাগতম {{ auth()->user()->name }}</h5>
-                               <span class="text-white font-size-12">সক্রিয় রয়েছেন</span>
+                               <h5 class="mb-0 text-white line-height">Welcome {{ auth()->user()->name }}</h5>
+                               <span class="text-white font-size-12">Active Now</span>
                             </div>
                             <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                <div class="media align-items-center">
@@ -64,8 +64,8 @@
                                      <i class="ri-file-user-line"></i>
                                   </div>
                                   <div class="media-body ml-3">
-                                     <h6 class="mb-0 ">আপনার প্রোফাইল</h6>
-                                     <p class="mb-0 font-size-12">আপনার ব্যাক্তিগত প্রোফাইল দেখুন</p>
+                                     <h6 class="mb-0 ">Profile</h6>
+                                     <p class="mb-0 font-size-12">Your profile details</p>
                                   </div>
                                </div>
                             </a>
@@ -75,8 +75,8 @@
                                      <i class="ri-profile-line"></i>
                                   </div>
                                   <div class="media-body ml-3">
-                                     <h6 class="mb-0 ">আপডেট প্রোফাইল</h6>
-                                     <p class="mb-0 font-size-12">আপনার ব্যাক্তিগত প্রোফাইল আপডেট করুন</p>
+                                     <h6 class="mb-0 ">Update Profile</h6>
+                                     <p class="mb-0 font-size-12">Update your profile information</p>
                                   </div>
                                </div>
                             </a>
@@ -86,8 +86,8 @@
                                      <i class="ri-account-box-line"></i>
                                   </div>
                                   <div class="media-body ml-3">
-                                     <h6 class="mb-0 ">একাউন্ট সেটিংস</h6>
-                                     <p class="mb-0 font-size-12">আপনার একাউন্ট সেটিংস ম্যানেজ করুন</p>
+                                     <h6 class="mb-0 ">Account Settings</h6>
+                                     <p class="mb-0 font-size-12">Manage your account settings</p>
                                   </div>
                                </div>
                             </a>
@@ -97,14 +97,14 @@
                                      <i class="ri-lock-line"></i>
                                   </div>
                                   <div class="media-body ml-3">
-                                     <h6 class="mb-0 ">প্রাইভেসি সেটিংস</h6>
-                                     <p class="mb-0 font-size-12">আপনার প্রাইভেসি সেটিংস পরিচালনা করুন</p>
+                                     <h6 class="mb-0 ">Privacy Policy</h6>
+                                     <p class="mb-0 font-size-12">Manage your privacy policy</p>
                                   </div>
                                </div>
                             </a>
                             <div class="d-inline-block w-100 text-center p-3">
                                 <x-logout class="dropdown-item notify-item">
-                                    <button class="bg-primary iq-sign-btn" role="button">লগআউট করুন<i class="ri-login-box-line ml-2"></i></button>
+                                    <button class="bg-primary iq-sign-btn" role="button">Logout<i class="ri-login-box-line ml-2"></i></button>
                                 </x-logout>
                             </div>
                          </div>

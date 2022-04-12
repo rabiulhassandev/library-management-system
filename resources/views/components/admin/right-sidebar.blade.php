@@ -1,7 +1,7 @@
 <div class="iq-colorbox color-fix">
     <div class="buy-button"> <a class="color-full" href="#"><i class="fa fa-spinner fa-spin"></i></a> </div>
     <div class="clearfix color-picker">
-        <h3 class="iq-font-black pb-2">পছন্দের কালার সমূহ</h3>
+        <h3 class="iq-font-black pb-2">Use Favorite Colors</h3>
         <p>এই রঙের কম্বো পুরো টেমপ্লেটের ভিতরে উপলব্ধ। আপনি আপনার ইচ্ছা অনুযায়ী পরিবর্তন করতে পারেন, এমনকি আপনি সীমাহীন সম্ভাবনার সাথে আপনার নিজের তৈরি করতে পারেন!</p>
         <ul class="iq-colorselect clearfix">
             <li class="color-1 iq-colormark" data-style="color-1"></li>
