@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card shadow">
     <div {{ $attributes->merge(['class'=>'card-body']) }}>
         @isset($title)
         <div class="header-title mt-1 mb-5">

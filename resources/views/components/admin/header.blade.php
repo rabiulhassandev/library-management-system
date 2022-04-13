@@ -58,7 +58,7 @@
                                <h5 class="mb-0 text-white line-height">Welcome {{ auth()->user()->name }}</h5>
                                <span class="text-white font-size-12">Active Now</span>
                             </div>
-                            <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                            <a href="{{ route('admin.user.profile') }}" class="iq-sub-card iq-bg-primary-hover">
                                <div class="media align-items-center">
                                   <div class="rounded iq-card-icon iq-bg-primary">
                                      <i class="ri-file-user-line"></i>
@@ -69,7 +69,7 @@
                                   </div>
                                </div>
                             </a>
-                            <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
+                            <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover d-none">
                                <div class="media align-items-center">
                                   <div class="rounded iq-card-icon iq-bg-primary">
                                      <i class="ri-profile-line"></i>
@@ -80,7 +80,7 @@
                                   </div>
                                </div>
                             </a>
-                            <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                            <a href="{{ route('admin.user.profile.settings') }}" class="iq-sub-card iq-bg-primary-hover">
                                <div class="media align-items-center">
                                   <div class="rounded iq-card-icon iq-bg-primary">
                                      <i class="ri-account-box-line"></i>
@@ -88,17 +88,6 @@
                                   <div class="media-body ml-3">
                                      <h6 class="mb-0 ">Account Settings</h6>
                                      <p class="mb-0 font-size-12">Manage your account settings</p>
-                                  </div>
-                               </div>
-                            </a>
-                            <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
-                               <div class="media align-items-center">
-                                  <div class="rounded iq-card-icon iq-bg-primary">
-                                     <i class="ri-lock-line"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                     <h6 class="mb-0 ">Privacy Policy</h6>
-                                     <p class="mb-0 font-size-12">Manage your privacy policy</p>
                                   </div>
                                </div>
                             </a>

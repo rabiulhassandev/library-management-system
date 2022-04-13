@@ -3,7 +3,7 @@
 </table>
 
 
-
+{{--
 
 @push('lib-styles')
 <!-- DataTables -->
@@ -37,4 +37,4 @@
 
 <!-- Datatable init js -->
 <script src="{{ admin_asset('js/pages/datatables.init.min.js') }}"></script>
-@endpush
+@endpush --}}

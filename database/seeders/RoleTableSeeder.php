@@ -36,6 +36,11 @@ class RoleTableSeeder extends Seeder
             // Setting
             'setting_management',
             'report_issue_management',
+
+
+
+            // category
+            'category_management',
         ];
 
         $role = [
