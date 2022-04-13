@@ -21,13 +21,6 @@
                     </h4>
                 </div>
                 <div class="">
-                    @if (config('theme.cdata.add'))
-                    <a href="{{ config('theme.cdata.add') }}"
-                        class="btn btn-primary btn-rounded waves-effect waves-light">
-                        <i class="ri-add-box-line"></i> Add New
-                    </a>
-                    @endif
-
                     @if (config('theme.cdata.back'))
                     <a href="{{ config('theme.cdata.back') }}"
                         class="btn btn-info btn-rounded waves-effect waves-light">
@@ -141,13 +134,157 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- --}}
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="phone" class="font-black">Phone</label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone No"
+                                    value="{{ config('theme.cdata.edit')?$data->phone:old('phone') }}" required>
+                                @error('phone')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
 
+                        {{-- Additional Information --}}
+
+
+                        <div class="col-12 pb-3">
+                            <h5 class="my-3 border-bottom">Additional Information</h5>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="nid_or_birth_no" class="font-black">NID/Birth C. No.</label>
+                                <input type="text" class="form-control" name="nid_or_birth_no" id="nid_or_birth_no" placeholder="Enter NID/Birth C. No."
+                                    value="{{ config('theme.cdata.edit')?$data->nid_or_birth_no:old('nid_or_birth_no') }}">
+                                @error('nid_or_birth_no')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="profession" class="font-black">profession</label>
+                                <input type="text" class="form-control" name="profession" id="profession" placeholder="Enter profession No"
+                                    value="{{ config('theme.cdata.edit')?$data->profession:old('profession') }}">
+                                @error('profession')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="bio" class="font-black">Bio</label>
+                                <input type="text" class="form-control" name="bio" id="bio" placeholder="Enter Bio"
+                                    value="{{ config('theme.cdata.edit')?$data->bio:old('bio') }}">
+                                @error('bio')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="institute_workplace" class="font-black">Institute/Workplace</label>
+                                <input type="text" class="form-control" name="institute_workplace" id="institute_workplace" placeholder="Enter Institute Workplace Name"
+                                    value="{{ config('theme.cdata.edit')?$data->institute_workplace:old('institute_workplace') }}">
+                                @error('institute_workplace')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="address" class="font-black">Address</label>
+                                <textarea name="address" id="address" class="form-control" style="min-height: 120px;"  placeholder="Enter Address">{{ config('theme.cdata.edit')?$data->address:old('address') }}</textarea>
+                                @error('address')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Social Information --}}
+
+
+                        <div class="col-12 pb-3">
+                            <h5 class="my-3 border-bottom">Social Information</h5>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="website" class="font-black">Website</label>
+                                <input type="url" class="form-control" name="website" id="website" placeholder="https://website.com"
+                                    value="{{ config('theme.cdata.edit')?$data->website:old('website') }}">
+                                @error('website')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="facebook" class="font-black">Facebook</label>
+                                <input type="url" class="form-control" name="facebook" id="facebook" placeholder="https://facebook.com/username"
+                                    value="{{ config('theme.cdata.edit')?$data->facebook:old('facebook') }}">
+                                @error('facebook')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="twitter" class="font-black">Twitter</label>
+                                <input type="url" class="form-control" name="twitter" id="twitter" placeholder="https://twitter.com/username"
+                                    value="{{ config('theme.cdata.edit')?$data->twitter:old('twitter') }}">
+                                @error('twitter')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="instagram" class="font-black">instagram</label>
+                                <input type="url" class="form-control" name="instagram" id="instagram" placeholder="https://instagram.com/username"
+                                    value="{{ config('theme.cdata.edit')?$data->instagram:old('instagram') }}">
+                                @error('instagram')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="linkedin" class="font-black">LinkedIn</label>
+                                <input type="url" class="form-control" name="linkedin" id="linkedin" placeholder="https://linkedin.com/in/username"
+                                    value="{{ config('theme.cdata.edit')?$data->linkedin:old('linkedin') }}">
+                                @error('linkedin')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="skype" class="font-black">Skype</label>
+                                <input type="text" class="form-control" name="skype" id="skype" placeholder="Skype ID"
+                                    value="{{ config('theme.cdata.edit')?$data->skype:old('skype') }}">
+                                @error('website')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="github" class="font-black">GitHub</label>
+                                <input type="url" class="form-control" name="github" id="github" placeholder="https://github.com/username"
+                                    value="{{ config('theme.cdata.edit')?$data->github:old('github') }}">
+                                @error('website')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
 
 
                         <div class="col-md-12 pt-1 pb-1">
                             <div>
-                                <h5 class="border-bottom border-top py-1 mx-1 mb-0 font-medium-2 font-black">
+                                <h5 class="border-bottom py-1 mx-1 mb-2 font-medium-2 font-black">
                                     <i class="feather icon-lock mr-50 "></i>
                                     Permission
                                 </h5>
@@ -177,7 +314,7 @@
                         {{-- --}}
                         <div class="col-md-12 ">
                             <div class="form-group pt-1 pb-1">
-                                <button type="submit" class="btn btn-primary btn-round">Save</button>
+                                <button type="submit" class="btn btn-primary btn-round btn-lg">Submit</button>
                             </div>
                         </div>
                     </div>

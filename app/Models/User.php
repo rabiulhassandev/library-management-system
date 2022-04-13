@@ -30,17 +30,23 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+
         'name',
         'email',
-        'password',
-        'user_status_id',
+        'email_verified_at',
+        'phone',
 
+        'user_status_id',
         'bio',
         'address',
         'public_email',
-        'company',
-        'company_address',
 
+        // Others Details
+        'nid_or_birth_no',
+        'profession',
+        'institute_workplace',
+
+        // social
         'website',
         'facebook',
         'twitter',
@@ -49,7 +55,9 @@ class User extends Authenticatable
         'skype',
         'github',
 
-        'profile_photo_path'
+        'password',
+        'current_team_id',
+        'profile_photo_path',
 
     ];
 

@@ -38,7 +38,7 @@
                             <div class="card shadow">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ $user->profile_photo_url }}" alt="profile-image" class="rounded-circle" style="width: 140px; height: 140px;">
+                                        <img src="{{  $user->profile_photo_url }}" alt=" " class="rounded-circle border-primary" style="width: 140px; height: 140px; border: 3px solid;">
                                         <div class="mt-3">
                                             <h4>{{ $user->name }}</h4>
                                             <p class="text-secondary mb-1">{!! get_user_role($user)->name??'<span class="badge badge-danger">User role not selected</span>' !!}</p>

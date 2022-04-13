@@ -327,7 +327,7 @@ class PageBuilderSeeder extends Seeder
 <div class="MsoNormal" style="line-height: 1.5;" data-custom-class="body_text">Designated Copyright Agent</div>
 </div>
 <div style="text-align: left; line-height: 1.1;" align="center">
-<div class="MsoNormal" style="line-height: 1.5;" data-custom-class="body_text">IQBAL HASAN</div>
+<div class="MsoNormal" style="line-height: 1.5;" data-custom-class="body_text">Rabiul Hassan</div>
 </div>
 <div style="text-align: left; line-height: 1.1;" align="center">
 <div class="MsoNormal" style="line-height: 1.5;" data-custom-class="body_text">Attn: Copyright Agent</div>

@@ -6,10 +6,11 @@ use App\Models\User;
 use App\Models\Admin\Role;
 use Illuminate\Http\Request;
 use App\Traits\User\Settings;
+use App\Models\Admin\UserStatus;
 use Laravel\Fortify\Rules\Password;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\UserStatus;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
@@ -125,6 +126,7 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => 'required',
             'password' => ['required', 'string', new Password, 'confirmed'],
             'user_status_id' => ['required', 'integer', 'in:' . \collect(UserStatus::cacheData())->pluck('id')->implode(',')],
             'role' => ['required', 'integer', 'in:' . \collect(Role::cacheData())->pluck('id')->implode(',')]
@@ -233,6 +235,7 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => 'required',
             'user_status_id' => ['required', 'integer', 'in:' . \collect(UserStatus::cacheData())->pluck('id')->implode(',')],
             'role' => ['required', 'integer', 'in:' . \collect(Role::cacheData())->pluck('id')->implode(',')]
         ]);
@@ -240,6 +243,7 @@ class UserController extends Controller
             $request->validate([
                 'password' => ['required', 'string', new Password, 'confirmed'],
             ]);
+            $data['password'] = Hash::make($request->password);
         } else {
             unset($data['password']);
         }

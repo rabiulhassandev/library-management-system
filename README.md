@@ -3,7 +3,7 @@
 <img src="resources\assets\admin-assets\images\logo-dark.png" width="400"></a>
 </p>
 
-## About <a href="javascript:void();" target="_blank">IQBAL HASAN</a>
+## About <a href="javascript:void();" target="_blank">Rabiul Hassan</a>
 
 Wave-Express is Courier Service, We Guarantee that your parcel will be delivered safely and in time. You, no doubt is our first priority and we ensure promised quality service. Let us come to you. Our courier partners will pick up from your door step.
 
@@ -35,7 +35,7 @@ Wave-Express is Courier Service, We Guarantee that your parcel will be delivered
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within This Project, please send an e-mail to <a href="https://iqbalhasan.dev" target="_blank">IQBAL HASAN</a> via [support@iqbalhasan.dev](mailto:support@iqbalhasan.dev). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within This Project, please send an e-mail to <a href="https://iqbalhasan.dev" target="_blank">Rabiul Hassan</a> via [support@iqbalhasan.dev](mailto:support@iqbalhasan.dev). All security vulnerabilities will be promptly addressed.
 
 ## License
 

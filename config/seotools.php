@@ -12,10 +12,10 @@ return [
         'defaults'       => [
             'title'        => env('APP_NAME', 'Laravel Project'), // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of IQBAL HASAN and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
+            'description'  => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of Rabiul Hassan and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [
-                'iqbal', 'hasan', 'dev', 'iqbalhasandev', 'iqbal hasan dev', 'iqbal hasan', 'iqbalhasan.dev', 'iqbalhasndev', 'web', 'developer', 'open source package', 'laravel', 'laravel developer', 'web designer', 'node js developer', 'vue js developer'
+                'iqbal', 'hasan', 'dev', 'iqbalhasandev', 'Rabiul Hassan dev', 'Rabiul Hassan', 'iqbalhasan.dev', 'iqbalhasndev', 'web', 'developer', 'open source package', 'laravel', 'laravel developer', 'web designer', 'node js developer', 'vue js developer'
             ],
             'canonical'    => null, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => 'all', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
@@ -40,7 +40,7 @@ return [
          */
         'defaults' => [
             'title'       => env('APP_NAME', 'Laravel Project'), // set false to total remove
-            'description' => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of IQBAL HASAN and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
+            'description' => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of Rabiul Hassan and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'Portfolio',
             'site_name'   => env('APP_NAME', 'Laravel Project'),
@@ -66,7 +66,7 @@ return [
          */
         'defaults' => [
             'title'       => env('APP_NAME', 'Laravel Project'), // set false to total remove
-            'description' => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of IQBAL HASAN and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
+            'description' => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of Rabiul Hassan and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [
