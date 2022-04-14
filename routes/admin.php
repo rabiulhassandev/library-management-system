@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\BookWriterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LibraryController;
 
 /**
  *
@@ -233,6 +234,25 @@ use App\Http\Controllers\CategoryController;
                 Route::put('/{bookWriter}/edit', [BookWriterController::class, 'update'])->name('admin.book-writer.update');
                 Route::delete('/{bookWriter}/delete', [BookWriterController::class, 'destroy'])->name('admin.book-writer.delete');
             }); //end Book Writer route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Library Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('library')->middleware(['permission:book_writer_management'])->group(function () {
+                Route::get('/', [LibraryController::class, 'index'])->name('admin.library.index');
+                Route::get('/create', [LibraryController::class, 'create'])->name('admin.library.create');
+                Route::post('/create', [LibraryController::class, 'store'])->name('admin.library.store');
+                Route::get('/{library}', [LibraryController::class, 'show'])->name('admin.library.show');
+                Route::get('/{library}/edit', [LibraryController::class, 'edit'])->name('admin.library.edit');
+                Route::put('/{library}/edit', [LibraryController::class, 'update'])->name('admin.library.update');
+                Route::delete('/{library}/delete', [LibraryController::class, 'destroy'])->name('admin.library.delete');
+            }); //end Library route group
 
         }); //end dashboard route group
 

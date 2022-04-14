@@ -115,7 +115,7 @@ if (!function_exists('upload_image')) {
             $request->validate([
                 $fileName => ['required', 'image'],
             ]);
-            if ($oldImage) Storage::delete($oldImage);
+            if ($oldImage && $oldImage != 'default.jpg') Storage::delete($oldImage);
             return  $request->$fileName->store($folderName);
         }
         return $oldImage;
@@ -238,5 +238,23 @@ if (!function_exists('generateOTP')) {
             $i++;
         }
         return $pin;
+    }
+}
+
+
+if (!function_exists('image_url')) {
+    function image_url($path, $default_image = null)
+    {
+        if ($path) {
+            return storage_asset($path);
+        }
+        return $default_image;
+    }
+}
+if (!function_exists('int_pad')) {
+
+    function int_pad($number, $pad_string = "0", $pad_length = 4)
+    {
+        return str_pad($number, $pad_length, $pad_string, STR_PAD_LEFT);
     }
 }
