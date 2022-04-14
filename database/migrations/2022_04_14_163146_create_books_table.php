@@ -42,17 +42,17 @@ class CreateBooksTable extends Migration
             ->foreign('category_id')
             ->references('id')
             ->on('categories')
-            ->onDelete('cascade');
+            ->onDelete('set null');
             $table
             ->foreign('writer_id')
             ->references('id')
             ->on('book_writers')
-            ->onDelete('cascade');
+            ->onDelete('set null');
             $table
             ->foreign('library_id')
             ->references('id')
             ->on('libraries')
-            ->onDelete('cascade');
+            ->onDelete('set null');
         });
     }
 

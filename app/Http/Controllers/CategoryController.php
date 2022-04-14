@@ -191,12 +191,18 @@ class CategoryController extends Controller
    /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Models\Category  $Category
+    * @param  \App\Models\Category  $category
     * @return \Illuminate\Http\Response
     */
-   public function destroy(Category $Category)
+   public function destroy(Category $category)
    {
-       $Category->delete();
+       if($category->books > 0){
+        Session::flash('error', 'You can\'t delete this category.');
+        return redirect()->back();
+       }
+
+       $category->delete();
+
        // flash message
        Session::flash('success', 'Successfully deleted Category Information.');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');

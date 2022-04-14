@@ -195,6 +195,10 @@ class BookWriterController extends Controller
     */
    public function destroy(BookWriter $bookWriter)
    {
+        if($bookWriter->books > 0){
+            Session::flash('error', 'You can\'t delete this book writer.');
+            return redirect()->back();
+        }
        $bookWriter->delete();
        // flash message
        Session::flash('success', 'Successfully deleted Book Writer Information.');

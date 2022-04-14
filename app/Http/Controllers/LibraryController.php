@@ -196,9 +196,13 @@ class LibraryController extends Controller
     */
    public function destroy(library $library)
    {
-       $library->delete();
-       // flash message
-       Session::flash('success', 'Successfully deleted Library Information.');
-       return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
+        if($library->books > 0){
+            Session::flash('error', 'You can\'t delete this library.');
+            return redirect()->back();
+        }
+        $library->delete();
+        // flash message
+        Session::flash('success', 'Successfully deleted Library Information.');
+        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 }
