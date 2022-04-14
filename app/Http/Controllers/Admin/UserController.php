@@ -138,6 +138,7 @@ class UserController extends Controller
 
             $data['profile_photo_path'] = $request->avatar->store('users');
         }
+        $data['password'] = Hash::make($request->password);
         $user = User::create($data)->assignRole($data['role'])->syncPermissions($data['permissions']);
         $user->forgetCache();
         // flash message

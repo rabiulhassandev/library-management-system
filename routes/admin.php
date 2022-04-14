@@ -22,7 +22,7 @@ use App\Http\Controllers\CategoryController;
  * ----------------------------------------------------------
  *
  */
-Route::domain(config('domain.admin'))->group(function () {
+// Route::domain(config('domain.admin'))->group(function () {
     /**
      *
      *
@@ -215,4 +215,4 @@ Route::domain(config('domain.admin'))->group(function () {
         }); //end dashboard route group
 
     }); //end auth route group
-});//end admin Subdomain group
+// });//end admin Subdomain group
