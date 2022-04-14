@@ -31,7 +31,6 @@ trait GeneralInfo
         // update user data
         $user->update($request->all());
         // forget cache
-        $user->forgetCache();
         // flash message
         Session::flash('success', 'Successfully Updated user account.');
 

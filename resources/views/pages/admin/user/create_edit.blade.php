@@ -284,30 +284,33 @@
 
                         <div class="col-md-12 pt-1 pb-1">
                             <div>
-                                <h5 class="border-bottom py-1 mx-1 mb-2 font-medium-2 font-black">
-                                    <i class="feather icon-lock mr-50 "></i>
-                                    Permission
-                                </h5>
-                                <div class="row mt-1">
-                                    @foreach (App\Models\Admin\Permission::all() as $p)
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="controls">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" id="{{ $p->name }}"
-                                                        name="permissions[{{ $p->id }}]" value="{{ $p->id }}"
-                                                        class="custom-control-input"
-                                                        {{config('theme.cdata.edit')?(permission_check($data->getDirectPermissions(),$p->id)?'checked':''):''}}
-                                                    >
-                                                    <label class="custom-control-label h6" for="{{ $p->name }}">
-                                                        {{permission_key_to_name($p->name)}}
-                                                    </label>
+                                @can('user_assign_permission')
+                                    <h5 class="border-bottom py-1 mx-1 mb-2 font-medium-2 font-black">
+                                        <i class="feather icon-lock mr-50 "></i>
+                                        Permission
+                                    </h5>
+                                    <div class="row mt-1">
+                                        @foreach (App\Models\Admin\Permission::all() as $p)
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" id="{{ $p->name }}"
+                                                            name="permissions[{{ $p->id }}]" value="{{ $p->id }}"
+                                                            class="custom-control-input"
+                                                            {{config('theme.cdata.edit')?(permission_check($data->getDirectPermissions(),$p->id)?'checked':''):''}}
+                                                        >
+                                                        <label class="custom-control-label h6" for="{{ $p->name }}">
+                                                            {{permission_key_to_name($p->name)}}
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
-                                </div>
+                                @endcan
+
                             </div>
                         </div>
 

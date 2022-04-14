@@ -22,8 +22,9 @@ class Library extends Model
 
     protected static $cacheKey = '__library_management__';
 
-    // public function books()
-    // {
-    //     return $this->belongsTo(Book::class, 'library_id');
-    // }
+    // All Books
+    public function books()
+    {
+        return $this->hasMany(Library::class, 'library_id');
+    }
 }

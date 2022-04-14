@@ -18,8 +18,9 @@ class BookWriter extends Model
 
     protected static $cacheKey = '__writer_management__';
 
-    // public function books()
-    // {
-    //     return $this->belongsTo(Book::class, 'book_writer_id');
-    // }
+    // All Books
+    public function books()
+    {
+        return $this->hasMany(BookWriter::class, 'writer_id');
+    }
 }

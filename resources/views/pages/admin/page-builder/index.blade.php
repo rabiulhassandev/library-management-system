@@ -55,7 +55,7 @@
                             {{ ++$key }}
                         </td>
                         <td>
-                            <a href="">{{$item->title}}
+                            <a href="{{ route('home.page', $item->slug) }}" target="_blank">{{$item->title}}
                         </td>
                         <td>
                             {{substr($item->body,0,10)}}

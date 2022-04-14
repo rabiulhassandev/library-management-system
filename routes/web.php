@@ -16,8 +16,9 @@
 |
 */
 
-
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RedirectController;
 
 Route::get('/', [RedirectController::class, 'homeToAdmin'])->name('home');
+Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');

@@ -54,7 +54,7 @@ class CategoryController extends Controller
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
     //    $collection = Category::cacheData();
-       $collection = Category::all();
+       $collection = Category::cacheData();
     //    dd($collection);
 
        return \view('pages.admin.category.index', \compact('collection'));

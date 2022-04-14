@@ -25,6 +25,7 @@ class RoleTableSeeder extends Seeder
             'user_role_management',
             //Permission
             'user_permission_management',
+            'user_assign_permission',
             //User
             'user_browse',
             'user_show',
@@ -59,24 +60,24 @@ class RoleTableSeeder extends Seeder
         $Manager = Role::create(['name' => 'Manager']);
         $Team_Member = Role::create(['name' => 'Team Member']);
         $Contributor = Role::create(['name' => 'Contributor']);
-        $Author = Role::create(['name' => 'Author']);
+        $Developer = Role::create(['name' => 'Developer']);
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission])->assignRole($Administrator);
+            Permission::create(['name' => $permission])->assignRole($Developer);
         }
 
         $Manager->givePermissionTo([]);
         $Team_Member->givePermissionTo([]);
         $Contributor->givePermissionTo([]);
-        $Author->givePermissionTo([]);
+        $Administrator->givePermissionTo([]);
 
 
 
         $users = [
             [
-                'name' => 'Admin',
-                'email' => 'admin@domain.com',
-                'password' => Hash::make('admin'),
+                'name' => 'Developer',
+                'email' => 'developer@gmail.com',
+                'password' => Hash::make('developer'),
                 'email_verified_at' => now(),
                 'user_status_id' => 2
             ]
@@ -84,6 +85,6 @@ class RoleTableSeeder extends Seeder
         foreach ($users as  $user) {
             User::create($user);
         }
-        User::first()->assignRole('Administrator');
+        User::first()->assignRole('Developer');
     }
 }

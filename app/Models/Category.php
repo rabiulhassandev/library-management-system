@@ -18,8 +18,9 @@ class Category extends Model
 
     protected static $cacheKey = '__category_management__';
 
-    // public function books()
-    // {
-    //     return $this->belongsTo(Book::class, 'category_id');
-    // }
+    // All Books
+    public function books()
+    {
+        return $this->hasMany(Category::class, 'category_id');
+    }
 }
