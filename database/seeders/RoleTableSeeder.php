@@ -41,6 +41,8 @@ class RoleTableSeeder extends Seeder
 
             // category
             'category_management',
+            // Book Writer
+            'book_writer_management',
         ];
 
         $role = [

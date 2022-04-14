@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\BookWriter;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class CategoryController extends Controller
+class BookWriterController extends Controller
 {
-
     /**
     * Middleware
     *
@@ -17,12 +16,12 @@ class CategoryController extends Controller
     */
    public function __construct()
    {
-       $this->middleware(['auth', 'permission:category_management']);
+       $this->middleware(['auth', 'permission:book_writer_management']);
 
        \config_set('theme.cdata', [
-           'title' => 'Category Management table',
-           'model' => 'Category',
-           'route-name-prefix' => 'admin.category',
+           'title' => 'Book Writer Management table',
+           'model' => 'Book Writer',
+           'route-name-prefix' => 'admin.book-writer',
            'back' => \back_url(),
            'breadcrumb' => [
                [
@@ -30,11 +29,11 @@ class CategoryController extends Controller
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Management Table',
+                   'name' => 'Book Writer Management Table',
                    'link' => false
                ],
            ],
-           'add' => \route('admin.category.create')
+           'add' => \route('admin.book-writer.create')
        ]);
    }
 
@@ -47,17 +46,17 @@ class CategoryController extends Controller
    public function index()
    {
        \config_set('theme.cdata', [
-           'description' => 'Display a listing of Category in Database.',
+           'description' => 'Display a listing of Book Writer in Database.',
        ]);
        // seo
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-    //    $collection = Category::cacheData();
-       $collection = Category::all();
+    //    $collection = BookWriter::cacheData();
+       $collection = BookWriter::all();
     //    dd($collection);
 
-       return \view('pages.admin.category.index', \compact('collection'));
+       return \view('pages.admin.book-writer.index', \compact('collection'));
    }
 
    /**
@@ -68,31 +67,31 @@ class CategoryController extends Controller
    public function create()
    {
        \config_set('theme.cdata', [
-           'title' => 'Create New Category Information',
+           'title' => 'Create New Book Writer Information',
            'breadcrumb' => [
                [
                    'name' => 'Dashboard',
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Table',
+                   'name' => 'Book Writer Table',
                    'link' => route(config('theme.cdata.route-name-prefix') . '.index')
                ],
 
                [
-                   'name' => 'Create New Category Information',
+                   'name' => 'Create New Book Writer Information',
                    'link' => false
                ],
            ],
            'add' => false,
-           'description' => 'Create new Category Information in a database.',
+           'description' => 'Create new Book Writer Information in a database.',
        ]);
 
        // seo
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-       return \view('pages.admin.category.create_edit');
+       return \view('pages.admin.book-writer.create_edit');
    }
 
    /**
@@ -104,26 +103,26 @@ class CategoryController extends Controller
    public function store(Request $request)
    {
        $request->validate([
-           'category_name' => 'required|unique:categories,category_name',
-           'category_description' => 'required'
+           'writer_name' => 'required|unique:book_writers,writer_name',
+           'writer_description' => 'required'
        ]);
        $data = $request->all();
-       $data['category_slug'] = Str::slug($request->category_name);
-       $category = Category::create($data);
+       $data['writer_slug'] = Str::slug($request->writer_name);
+       $bookWriter = BookWriter::create($data);
 
 
        // flash message
-       Session::flash('success', 'Successfully Stored New Category Information.');
+       Session::flash('success', 'Successfully Stored New Book Writer Information.');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 
    /**
     * Display the specified resource.
     *
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\BookWriter  $bookWriter
     * @return \Illuminate\Http\Response
     */
-   public function show(Category $category)
+   public function show(BookWriter $bookWriter)
    {
        return \abort(404);
    }
@@ -131,32 +130,32 @@ class CategoryController extends Controller
    /**
     * Show the form for editing the specified resource.
     *
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\BookWriter  $bookWriter
     * @return \Illuminate\Http\Response
     */
-   public function edit(Category $category)
+   public function edit(BookWriter $bookWriter)
    {
        \config_set('theme.cdata', [
-           'title' => 'Edit Category Information',
+           'title' => 'Edit Book Writer Information',
            'breadcrumb' => [
                [
                    'name' => 'Dashboard',
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Table',
+                   'name' => 'BookWriter Table',
                    'link' => route(config('theme.cdata.route-name-prefix') . '.index')
                ],
 
                [
-                   'name' => 'Edit Category Information',
+                   'name' => 'Edit Book Writer Information',
                    'link' => false
                ],
            ],
            'add' => false,
-           'edit' => route(config('theme.cdata.route-name-prefix') . '.edit', $category->id),
-           'update' => route(config('theme.cdata.route-name-prefix') . '.update', $category->id),
-           'description' => 'Edit existing Category Information.'
+           'edit' => route(config('theme.cdata.route-name-prefix') . '.edit', $bookWriter->id),
+           'update' => route(config('theme.cdata.route-name-prefix') . '.update', $bookWriter->id),
+           'description' => 'Edit existing Book Writer Information.'
 
        ]);
        // seo
@@ -164,41 +163,41 @@ class CategoryController extends Controller
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
 
-       return \view('pages.admin.category.create_edit', ['item' => $category]);
+       return \view('pages.admin.book-writer.create_edit', ['item' => $bookWriter]);
    }
 
    /**
     * Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\BookWriter  $bookWriter
     * @return \Illuminate\Http\Response
     */
-   public function update(Request $request, Category $category)
+   public function update(Request $request, BookWriter $bookWriter)
    {
        $request->validate([
-        'category_name' => 'required',
-        'category_description' => 'required'
+        'writer_name' => 'required',
+        'writer_description' => 'required'
        ]);
        $data = $request->all();
-       $data['category_slug'] = Str::slug($request->category_name);
-       $category->update($data);
+       $data['writer_slug'] = Str::slug($request->writer_name);
+       $bookWriter->update($data);
        // flash message
-       Session::flash('success', 'Successfully Updated Category Information .');
+       Session::flash('success', 'Successfully Updated Book Writer Information .');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 
    /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Models\Category  $Category
+    * @param  \App\Models\BookWriter  $bookWriter
     * @return \Illuminate\Http\Response
     */
-   public function destroy(Category $Category)
+   public function destroy(BookWriter $bookWriter)
    {
-       $Category->delete();
+       $bookWriter->delete();
        // flash message
-       Session::flash('success', 'Successfully deleted Category Information.');
+       Session::flash('success', 'Successfully deleted Book Writer Information.');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 }

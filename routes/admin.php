@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\Admin\Setting\SettingController;
+use App\Http\Controllers\BookWriterController;
 use App\Http\Controllers\CategoryController;
 
 /**
@@ -194,11 +195,13 @@ use App\Http\Controllers\CategoryController;
                 Route::delete('/{setting}/delete', [SettingController::class, 'destroy'])->name('admin.settings.delete');
                 Route::get('/{setting}/unset-value', [SettingController::class, 'unsetValue'])->name('admin.settings.unsetValue');
             }); //end settings group
+
+
             /**
             *
             *
             * ----------------------------------------------------------
-            * User Status Management
+            * Category Management
             * ----------------------------------------------------------
             *
             */
@@ -210,7 +213,26 @@ use App\Http\Controllers\CategoryController;
                 Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
                 Route::put('/{category}/edit', [CategoryController::class, 'update'])->name('admin.category.update');
                 Route::delete('/{category}/delete', [CategoryController::class, 'destroy'])->name('admin.category.delete');
-            }); //end role route group
+            }); //end category route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Book Writer Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('book-writer')->middleware(['permission:book_writer_management'])->group(function () {
+                Route::get('/', [BookWriterController::class, 'index'])->name('admin.book-writer.index');
+                Route::get('/create', [BookWriterController::class, 'create'])->name('admin.book-writer.create');
+                Route::post('/create', [BookWriterController::class, 'store'])->name('admin.book-writer.store');
+                Route::get('/{bookWriter}', [BookWriterController::class, 'show'])->name('admin.book-writer.show');
+                Route::get('/{bookWriter}/edit', [BookWriterController::class, 'edit'])->name('admin.book-writer.edit');
+                Route::put('/{bookWriter}/edit', [BookWriterController::class, 'update'])->name('admin.book-writer.update');
+                Route::delete('/{bookWriter}/delete', [BookWriterController::class, 'destroy'])->name('admin.book-writer.delete');
+            }); //end Book Writer route group
 
         }); //end dashboard route group
 
