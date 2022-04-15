@@ -20,14 +20,6 @@
                     <h4 class="">{{ config('theme.cdata.title') }}</h4>
                 </div>
                 <div class="">
-                    @can('user_create')
-                    @if (config('theme.cdata.add'))
-                    <a href="{{ config('theme.cdata.add') }}"
-                        class="btn btn-primary btn-rounded waves-effect waves-light">
-                        <i class="far fa-plus-square"></i> Add New
-                    </a>
-                    @endif
-                    @endcan
 
                     @if (config('theme.cdata.back'))
                     <a href="{{ config('theme.cdata.back') }}"
@@ -46,6 +38,11 @@
                     <li class="{{ $active_tab=='general-info'?'active':'' }}">
                         <a href="{{ route('admin.user.profile.settings',['active_tab'=>'general-info']) }}">
                             General Info
+                        </a>
+                    </li>
+                    <li class="{{ $active_tab=='others-info'?'active':'' }}">
+                        <a href="{{ route('admin.user.profile.settings',['active_tab'=>'others-info']) }}">
+                            Others Info
                         </a>
                     </li>
                     @endif
@@ -83,6 +80,9 @@
                     @switch($active_tab)
                     @case('general-info')
                     <x-profile.general-info :user="$user" />
+                    @break
+                    @case('others-info')
+                    <x-profile.others-info :user="$user" />
                     @break
                     @case('update-password')
                     <x-profile.update-password :user="$user" />

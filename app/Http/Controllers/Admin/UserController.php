@@ -354,4 +354,22 @@ class UserController extends Controller
 
         return \response($user);
     }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function settingOtherInfoUpdate(Request $request, User $user)
+    {
+        $data = $request->all();
+
+        $user->update($data);
+        // flash message
+        Session::flash('success', 'Your Information Update Successfully.');
+        return \redirect()->back();
+    }
 }

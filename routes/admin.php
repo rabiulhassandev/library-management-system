@@ -140,6 +140,7 @@ use App\Http\Controllers\LibraryController;
                 Route::get('/{user}', [UserController::class, 'show'])->name('admin.user.show');
                 Route::get('/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
                 Route::put('/{user}/edit', [UserController::class, 'update'])->name('admin.user.update');
+                Route::post('/{user}', [UserController::class, 'settingOtherInfoUpdate'])->name('admin.user.setting-other-info-update');
                 Route::delete('/{user}/delete', [UserController::class, 'destroy'])->name('admin.user.delete');
                 Route::post('{user}/status-update', [UserController::class, 'statusUpdate'])->name('user.statusUpdate');
             }); //end user route group

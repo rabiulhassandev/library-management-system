@@ -55,6 +55,9 @@ trait Settings
             case 'general-info':
                 $this->general_info_update($user, $request);
                 break;
+            case 'others-info':
+                $this->others_info_update($user, $request);
+                break;
             case 'update-password':
                 $this->update_password($user, $request);
                 break;
