@@ -16,6 +16,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookWriterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\ProfileController;
 
 /**
  *
@@ -246,7 +247,7 @@ use App\Http\Controllers\LibraryController;
             * ----------------------------------------------------------
             *
             */
-            Route::prefix('library')->middleware(['permission:book_writer_management'])->group(function () {
+            Route::prefix('library')->middleware(['permission:library_management'])->group(function () {
                 Route::get('/', [LibraryController::class, 'index'])->name('admin.library.index');
                 Route::get('/create', [LibraryController::class, 'create'])->name('admin.library.create');
                 Route::post('/create', [LibraryController::class, 'store'])->name('admin.library.store');
@@ -265,7 +266,7 @@ use App\Http\Controllers\LibraryController;
             * ----------------------------------------------------------
             *
             */
-            Route::prefix('book')->middleware(['permission:book_writer_management'])->group(function () {
+            Route::prefix('book')->middleware(['permission:book_management'])->group(function () {
                 Route::get('/', [BookController::class, 'index'])->name('admin.book.index');
                 Route::get('/create', [BookController::class, 'create'])->name('admin.book.create');
                 Route::post('/create', [BookController::class, 'store'])->name('admin.book.store');
@@ -274,6 +275,25 @@ use App\Http\Controllers\LibraryController;
                 Route::put('/{book}/edit', [BookController::class, 'update'])->name('admin.book.update');
                 Route::delete('/{book}/delete', [BookController::class, 'destroy'])->name('admin.book.delete');
             }); //end book route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Profile Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('profile')->middleware(['permission:profile_management'])->group(function () {
+                Route::get('/', [ProfileController::class, 'index'])->name('admin.profile.index');
+                Route::get('/create', [ProfileController::class, 'create'])->name('admin.profile.create');
+                Route::post('/create', [ProfileController::class, 'store'])->name('admin.profile.store');
+                Route::get('/{profile}', [ProfileController::class, 'show'])->name('admin.profile.show');
+                Route::get('/{profile}/edit', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+                Route::put('/{profile}/edit', [ProfileController::class, 'update'])->name('admin.profile.update');
+                Route::delete('/{profile}/delete', [ProfileController::class, 'destroy'])->name('admin.profile.delete');
+            }); //end profile route group
 
         }); //end dashboard route group
 

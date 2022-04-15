@@ -52,8 +52,8 @@ class LibraryController extends Controller
         $this->seo()->setTitle(config('theme.cdata.title'));
         $this->seo()->setDescription(\config('theme.cdata.description'));
 
-        //    $collection = library::cacheData();
-        $collection = library::all();
+           $collection = library::cacheData();
+        // $collection = library::all();
         //    dd($collection);
 
         return \view('pages.admin.library.index', \compact('collection'));

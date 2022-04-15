@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Profile;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class CategoryController extends Controller
+class ProfileController extends Controller
 {
-
     /**
     * Middleware
     *
@@ -17,12 +16,12 @@ class CategoryController extends Controller
     */
    public function __construct()
    {
-       $this->middleware(['auth', 'permission:category_management']);
+       $this->middleware(['auth', 'permission:profile_management']);
 
        \config_set('theme.cdata', [
-           'title' => 'Category Management table',
-           'model' => 'Category',
-           'route-name-prefix' => 'admin.category',
+           'title' => 'Profile Management table',
+           'model' => 'Profile',
+           'route-name-prefix' => 'admin.profile',
            'back' => \back_url(),
            'breadcrumb' => [
                [
@@ -30,11 +29,11 @@ class CategoryController extends Controller
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Management Table',
+                   'name' => 'Profile Management Table',
                    'link' => false
                ],
            ],
-           'add' => \route('admin.category.create')
+           'add' => \route('admin.profile.create')
        ]);
    }
 
@@ -47,17 +46,17 @@ class CategoryController extends Controller
    public function index()
    {
        \config_set('theme.cdata', [
-           'description' => 'Display a listing of Category in Database.',
+           'description' => 'Display a listing of Profile in Database.',
        ]);
        // seo
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-       $collection = Category::cacheData();
-    //    $collection = Category::cacheData();
+       $collection = Profile::cacheData();
+    //    $collection = Profile::all();
     //    dd($collection);
 
-       return \view('pages.admin.category.index', \compact('collection'));
+       return \view('pages.admin.profile.index', \compact('collection'));
    }
 
    /**
@@ -68,31 +67,31 @@ class CategoryController extends Controller
    public function create()
    {
        \config_set('theme.cdata', [
-           'title' => 'Create New Category Information',
+           'title' => 'Create New Profile Information',
            'breadcrumb' => [
                [
                    'name' => 'Dashboard',
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Table',
+                   'name' => 'Profile Table',
                    'link' => route(config('theme.cdata.route-name-prefix') . '.index')
                ],
 
                [
-                   'name' => 'Create New Category Information',
+                   'name' => 'Create New Profile Information',
                    'link' => false
                ],
            ],
            'add' => false,
-           'description' => 'Create new Category Information in a database.',
+           'description' => 'Create new Profile Information in a database.',
        ]);
 
        // seo
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-       return \view('pages.admin.category.create_edit');
+       return \view('pages.admin.profile.create_edit');
    }
 
    /**
@@ -104,59 +103,59 @@ class CategoryController extends Controller
    public function store(Request $request)
    {
        $request->validate([
-           'category_name' => 'required|unique:categories,category_name',
-           'category_description' => 'required'
+           'name' => 'required',
+           'phone' => 'required'
        ]);
        $data = $request->all();
-       $data['category_slug'] = Str::slug($request->category_name);
-       $category = Category::create($data);
+       $data['image'] = \upload_image($request, 'image', 'profile');
+       $profile = Profile::create($data);
 
 
        // flash message
-       Session::flash('success', 'Successfully Stored New Category Information.');
+       Session::flash('success', 'Successfully Stored New Profile Information.');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 
    /**
     * Display the specified resource.
     *
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\Profile  $profile
     * @return \Illuminate\Http\Response
     */
-   public function show(Category $category)
+   public function show(Profile $profile)
    {
-       return \abort(404);
+        return \view('pages.admin.profile.show', ['item'=>$profile]);
    }
 
    /**
     * Show the form for editing the specified resource.
     *
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\Profile  $profile
     * @return \Illuminate\Http\Response
     */
-   public function edit(Category $category)
+   public function edit(Profile $profile)
    {
        \config_set('theme.cdata', [
-           'title' => 'Edit Category Information',
+           'title' => 'Edit Profile Information',
            'breadcrumb' => [
                [
                    'name' => 'Dashboard',
                    'link' => route('admin.dashboard')
                ],
                [
-                   'name' => 'Category Table',
+                   'name' => 'Profile Table',
                    'link' => route(config('theme.cdata.route-name-prefix') . '.index')
                ],
 
                [
-                   'name' => 'Edit Category Information',
+                   'name' => 'Edit Profile Information',
                    'link' => false
                ],
            ],
            'add' => false,
-           'edit' => route(config('theme.cdata.route-name-prefix') . '.edit', $category->id),
-           'update' => route(config('theme.cdata.route-name-prefix') . '.update', $category->id),
-           'description' => 'Edit existing Category Information.'
+           'edit' => route(config('theme.cdata.route-name-prefix') . '.edit', $profile->id),
+           'update' => route(config('theme.cdata.route-name-prefix') . '.update', $profile->id),
+           'description' => 'Edit existing Profile Information.'
 
        ]);
        // seo
@@ -164,47 +163,41 @@ class CategoryController extends Controller
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
 
-       return \view('pages.admin.category.create_edit', ['item' => $category]);
+       return \view('pages.admin.profile.create_edit', ['item' => $profile]);
    }
 
    /**
     * Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\Profile  $profile
     * @return \Illuminate\Http\Response
     */
-   public function update(Request $request, Category $category)
+   public function update(Request $request, Profile $profile)
    {
-       $request->validate([
-        'category_name' => 'required',
-        'category_description' => 'required'
-       ]);
-       $data = $request->all();
-       $data['category_slug'] = Str::slug($request->category_name);
-       $category->update($data);
-       // flash message
-       Session::flash('success', 'Successfully Updated Category Information .');
-       return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required'
+        ]);
+        $data = $request->all();
+        $data['image'] = \upload_image($request, 'image', 'profile', $profile->image);
+        $profile->update($data);
+        // flash message
+        Session::flash('success', 'Successfully Updated Profile Information .');
+        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 
    /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Models\Category  $category
+    * @param  \App\Models\Profile  $profile
     * @return \Illuminate\Http\Response
     */
-   public function destroy(Category $category)
+   public function destroy(Profile $profile)
    {
-       if($category->books > 0){
-        Session::flash('error', 'You can\'t delete this category.');
-        return redirect()->back();
-       }
-
-       $category->delete();
-
+       $profile->delete();
        // flash message
-       Session::flash('success', 'Successfully deleted Category Information.');
+       Session::flash('success', 'Successfully deleted Profile Information.');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');
    }
 }

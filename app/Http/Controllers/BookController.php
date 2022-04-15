@@ -16,7 +16,7 @@ class BookController extends Controller
     */
    public function __construct()
    {
-       $this->middleware(['auth', 'permission:book_writer_management']);
+       $this->middleware(['auth', 'permission:book_management']);
 
        \config_set('theme.cdata', [
            'title' => 'Book Management table',
@@ -52,8 +52,8 @@ class BookController extends Controller
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-    //    $collection = Book::cacheData();
-       $collection = Book::all();
+       $collection = Book::cacheData();
+    //    $collection = Book::all();
     //    dd($collection);
 
        return \view('pages.admin.book.index', \compact('collection'));

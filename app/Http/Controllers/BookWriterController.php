@@ -52,8 +52,8 @@ class BookWriterController extends Controller
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-    //    $collection = BookWriter::cacheData();
-       $collection = BookWriter::all();
+       $collection = BookWriter::cacheData();
+    //    $collection = BookWriter::all();
     //    dd($collection);
 
        return \view('pages.admin.book-writer.index', \compact('collection'));

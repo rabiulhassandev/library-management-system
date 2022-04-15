@@ -48,6 +48,8 @@ class RoleTableSeeder extends Seeder
             'library_management',
             // Book Management
             'book_management',
+            // Profile Management
+            'profile_management',
         ];
 
         $role = [
