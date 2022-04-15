@@ -57,27 +57,21 @@ class RoleTableSeeder extends Seeder
         ];
 
         $role = [
-            'Administrator',
-            'Manager',
-            'Team Member',
-            'Contributor',
-            'Author',
+            'Developer',
+            'Admin',
+            'User',
         ];
 
-        $Administrator = Role::create(['name' => 'Administrator']);
-        $Manager = Role::create(['name' => 'Manager']);
-        $Team_Member = Role::create(['name' => 'Team Member']);
-        $Contributor = Role::create(['name' => 'Contributor']);
         $Developer = Role::create(['name' => 'Developer']);
+        $Admin = Role::create(['name' => 'Admin']);
+        $User = Role::create(['name' => 'User']);
 
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission])->assignRole($Developer);
         }
 
-        $Manager->givePermissionTo([]);
-        $Team_Member->givePermissionTo([]);
-        $Contributor->givePermissionTo([]);
-        $Administrator->givePermissionTo([]);
+        $Admin->givePermissionTo([]);
+        $User->givePermissionTo([]);
 
 
 
