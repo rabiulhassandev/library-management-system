@@ -52,6 +52,8 @@ class RoleTableSeeder extends Seeder
             'profile_management',
             // Contact Us Management
             'contact_us_management',
+            // Book Transition Management
+            'book_transition_management',
         ];
 
         $role = [

@@ -43,7 +43,9 @@
                                             <h4>{{ $user->name }}</h4>
                                             <p class="text-secondary mb-1">{!! get_user_role($user)->name??'<span class="badge badge-danger">User role not selected</span>' !!}</p>
                                             <p class="text-muted font-size-sm">{{ $user->bio }}</p>
+                                            @if ($user->id == auth()->user()->id)
                                             <a href="{{ route('admin.user.profile.settings', $user->id) }}" class="btn btn-primary mx-1 btn-sm"><i class="zmdi zmdi-edit"></i> Go To Settings</a>
+                                            @endif
                                             {{-- <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-primary mx-1 btn-sm"><i class="zmdi zmdi-edit"></i> Update Profile
                                             </a> --}}
                                         </div>

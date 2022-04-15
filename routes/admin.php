@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\UserStatusController;
 use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookTransitionController;
 use App\Http\Controllers\BookWriterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
@@ -297,7 +298,6 @@ use App\Http\Controllers\ProfileController;
             }); //end profile route group
 
 
-
             /**
             *
             *
@@ -315,6 +315,25 @@ use App\Http\Controllers\ProfileController;
                 Route::put('/{contactUs}/edit', [ContactUsController::class, 'update'])->name('admin.contact-us.update');
                 Route::delete('/{contactUs}/delete', [ContactUsController::class, 'destroy'])->name('admin.contact-us.delete');
             }); //end Contact Us route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Book Transition Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('book-transition')->middleware(['permission:book_transition_management'])->group(function () {
+                Route::get('/', [BookTransitionController::class, 'index'])->name('admin.book-transition.index');
+                Route::get('/create', [BookTransitionController::class, 'create'])->name('admin.book-transition.create');
+                Route::post('/create', [BookTransitionController::class, 'store'])->name('admin.book-transition.store');
+                Route::get('/{bookTransition}', [BookTransitionController::class, 'show'])->name('admin.book-transition.show');
+                Route::get('/{bookTransition}/edit', [BookTransitionController::class, 'edit'])->name('admin.book-transition.edit');
+                Route::put('/{bookTransition}/edit', [BookTransitionController::class, 'update'])->name('admin.book-transition.update');
+                Route::delete('/{bookTransition}/delete', [BookTransitionController::class, 'destroy'])->name('admin.book-transition.delete');
+            }); //end Book Transition route group
 
         }); //end dashboard route group
 

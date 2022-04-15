@@ -155,6 +155,21 @@
 
 
                 {{-----------------------------------------------------------
+                ---------------- Book Transition Managment Start ---------------
+                -------------------------------------------------------------}}
+                @can('book_transition_management')
+                <x-admin-nav-link href="{{ route('admin.book-transition.index') }}">
+                    <i class="ri-git-repository-commits-line"></i>
+                    <span></span>
+                    <span>Book Transition</span>
+                </x-admin-nav-link>
+                @endcan
+                {{-----------------------------------------------------------
+                ---------------- Book Transition Managment End ---------------
+                -------------------------------------------------------------}}
+
+
+                {{-----------------------------------------------------------
                 ---------------- Portfolio Managment Start ---------------
                 -------------------------------------------------------------}}
                 @can('page_builder')
