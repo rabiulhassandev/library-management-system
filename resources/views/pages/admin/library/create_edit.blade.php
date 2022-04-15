@@ -96,7 +96,7 @@
                                 <label for="library_image" class="font-black">Library Image</label>
                                 <input type="file" class="form-control" name="library_image" id="library_image"
                                     onchange="get_img_url(this, '#library_image_image');"
-                                    placeholder="select library image" {{ isset($item) ? '' : 'required' }}>
+                                    placeholder="select library image" {{ isset($item) ? '' : 'required' }} accept="image/*">
                                 <img id="library_image_image"
                                     src="{{ config('theme.cdata.edit')?image_url($item->library_image):'' }}" width="120px"
                                     class="mt-1">

@@ -18,15 +18,15 @@ class Book extends Model
         'book_owner',
         'book_owner_unique_id',
         'book_owner_address',
-        'book_designation',
+        'book_description',
         'book_pages',
         'book_price',
         'book_publisher',
-        'book_image',
         'book_address',
         'book_map',
         'book_status',
         'book_pdf',
+        'book_image',
         'book_created',
 
 

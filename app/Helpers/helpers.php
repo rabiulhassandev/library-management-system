@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Storage;
+
 
 
 
@@ -119,6 +121,23 @@ if (!function_exists('upload_image')) {
             return  $request->$fileName->store($folderName);
         }
         return $oldImage;
+    }
+}
+
+
+if (!function_exists('upload_file')) {
+
+    function upload_file($request, $fileName, $folderName, $oldFile = false)
+    {
+
+        if ($request->has($fileName)) {
+            $request->validate([
+                $fileName => ['required'],
+            ]);
+            if ($oldFile && $oldFile != 'default.jpg') Storage::delete($oldFile);
+            return  $request->$fileName->store($folderName);
+        }
+        return $oldFile;
     }
 }
 
