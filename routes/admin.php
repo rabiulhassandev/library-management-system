@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookWriterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\ProfileController;
 
@@ -294,6 +295,26 @@ use App\Http\Controllers\ProfileController;
                 Route::put('/{profile}/edit', [ProfileController::class, 'update'])->name('admin.profile.update');
                 Route::delete('/{profile}/delete', [ProfileController::class, 'destroy'])->name('admin.profile.delete');
             }); //end profile route group
+
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Contact Us Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('contact-us')->middleware(['permission:contact_us_management'])->group(function () {
+                Route::get('/', [ContactUsController::class, 'index'])->name('admin.contact-us.index');
+                Route::get('/create', [ContactUsController::class, 'create'])->name('admin.contact-us.create');
+                Route::post('/create', [ContactUsController::class, 'store'])->name('admin.contact-us.store');
+                Route::get('/{contactUs}', [ContactUsController::class, 'show'])->name('admin.contact-us.show');
+                Route::get('/{contactUs}/edit', [ContactUsController::class, 'edit'])->name('admin.contact-us.edit');
+                Route::put('/{contactUs}/edit', [ContactUsController::class, 'update'])->name('admin.contact-us.update');
+                Route::delete('/{contactUs}/delete', [ContactUsController::class, 'destroy'])->name('admin.contact-us.delete');
+            }); //end Contact Us route group
 
         }); //end dashboard route group
 
