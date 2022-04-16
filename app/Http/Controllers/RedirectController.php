@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class RedirectController extends Controller
 {
-    public function homeToAdmin()
+    public function index()
     {
-        return \redirect()->route('admin.dashboard');
+        return view('pages.front.home');
     }
 }

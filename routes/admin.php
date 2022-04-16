@@ -54,7 +54,7 @@ use App\Http\Controllers\ProfileController;
      *
      */
     Route::middleware(['auth', 'verified'])->group(function () {
-        Route::get('/', [DashboardController::class, 'redirect'])->name('admin.redirect');
+        // Route::get('/', [DashboardController::class, 'redirect'])->name('admin.redirect');
 
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');

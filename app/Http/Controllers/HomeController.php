@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return \view('welcome');
+        return \view('pages.front.home');
     }
 
     public function page(PageBuilder $page)
