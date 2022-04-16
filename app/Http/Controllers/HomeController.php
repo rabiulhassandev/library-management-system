@@ -19,10 +19,28 @@ class HomeController extends Controller
         return \view('pages.front.books');
     }
 
+    // Books Page
+    public function bookDetails()
+    {
+        return \view('pages.front.book-details');
+    }
+
     // Contact Us Page
     public function contactUs()
     {
         return \view('pages.front.contact-us');
+    }
+
+    // Registration Page
+    public function registration()
+    {
+        return \view('pages.front.registration');
+    }
+
+    // About Us Page
+    public function aboutUs()
+    {
+        return \view('pages.front.about-us');
     }
 
     // Categories Page
