@@ -287,6 +287,57 @@ body {
 }
 
 
+
+/*
+*
+*
+* CATEGORIES PAGE CSS
+*
+*
+*
+*/
+
+#categories_page .category-list{
+    text-align: justify;
+}
+#categories_page .category-list .category-card{
+    display: inline-block;
+    margin: 8px 5px;
+}
+
+#categories_page .category-list .category-card .category-card-box{
+    width: 180px;
+    min-height: 120px;
+    background-color: #e43573;
+    display: flex;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: url('https://www.freevector.com/uploads/vector/preview/18404/Free_Pink_Background_Vector.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px !important;
+    transition: .5s;
+}
+
+#categories_page .category-list .category-card .category-card-box:hover{
+    background: #E91E63;
+    cursor: pointer;
+}
+
+#categories_page .category-list a{
+    text-decoration: none;
+    color: white;
+}
+
+#categories_page .category-list .category-card .category-card-box h5{
+    text-align: center;
+    margin: 0;
+}
+
+
 @media (max-width: 768px) {
     .top-bar h5{
         text-align: center;
