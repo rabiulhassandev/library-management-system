@@ -20,5 +20,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RedirectController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');
+
+Route::prefix('/')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/books', [HomeController::class, 'books'])->name('home.books');
+    Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');
+});
