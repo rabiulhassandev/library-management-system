@@ -95,7 +95,14 @@ body {
     border-color: #e43573;
 }
 
-/* Home Page */
+/*
+*
+*
+* HOME PAGE CSS
+*
+*
+*
+*/
 
 .top-bar{
     max-width: 1250px;
@@ -229,6 +236,56 @@ body {
 #footer_section .list a:hover{
     color: #E91E63;
 }
+
+
+/*
+*
+*
+* BOOK PAGE CSS
+*
+*
+*
+*/
+
+#book_page .book-list{
+    text-align: justify;
+}
+
+#book_page .book-card{
+    width: 160px;
+    margin: 8px 10px;
+    cursor: pointer;
+    display: inline-block;
+    /* padding: 5px; */
+    position: relative;
+}
+#book_page .book-card img{
+    width: 100%;
+}
+#book_page .book-card .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #E91E63;
+    opacity: 0;
+    transition: .5s;
+}
+#book_page .book-card a{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    width: 100px;
+    height: 35px;
+}
+#book_page .book-card:hover .overlay{
+    opacity: 1;
+    box-shadow: 0px 0px 9px 2px #00000042;
+}
+
 
 @media (max-width: 768px) {
     .top-bar h5{

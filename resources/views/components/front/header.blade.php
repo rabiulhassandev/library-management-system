@@ -43,6 +43,9 @@
                         <a class="nav-link" href="/acadamic-books">একাডেমিক বই</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/categories">ক্যাটাগরি</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/about-us">আমাদের সম্পর্কে</a>
                     </li>
                     <li class="nav-item">
