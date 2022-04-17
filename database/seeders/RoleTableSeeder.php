@@ -37,6 +37,8 @@ class RoleTableSeeder extends Seeder
             // Setting
             'setting_management',
             'report_issue_management',
+            // user role edit
+            'user_role_edit',
 
 
 
@@ -46,14 +48,16 @@ class RoleTableSeeder extends Seeder
             'book_writer_management',
             // Library Management
             'library_management',
-            // Book Management
+            // Books Management
             'book_management',
             // Profile Management
             'profile_management',
             // Contact Us Management
             'contact_us_management',
-            // Book Transition Management
+            // Books Transition Management
             'book_transition_management',
+            // Academic Books Transition Management
+            'academic_books_management',
         ];
 
         $role = [

@@ -139,6 +139,9 @@ class UserController extends Controller
             $data['profile_photo_path'] = $request->avatar->store('users');
         }
         $data['password'] = Hash::make($request->password);
+        if(!isset($data['permissions'])){
+            $data['permissions'] = null;
+        }
         $user = User::create($data)->assignRole($data['role'])->syncPermissions($data['permissions']);
         $user->forgetCache();
         // flash message
@@ -258,6 +261,9 @@ class UserController extends Controller
         }
         $user->update($data);
 
+        if(!isset($data['permissions'])){
+            $data['permissions'] = null;
+        }
         if ($user->id != auth()->user()->id) {
             $user->syncRoles($data['role'])->syncPermissions($data['permissions']);
         } else {

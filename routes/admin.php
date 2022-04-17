@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Controllers\AcademicBookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -277,6 +278,25 @@ use App\Http\Controllers\ProfileController;
                 Route::put('/{book}/edit', [BookController::class, 'update'])->name('admin.book.update');
                 Route::delete('/{book}/delete', [BookController::class, 'destroy'])->name('admin.book.delete');
             }); //end book route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Academic Book Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('academic-book')->middleware(['permission:academic_books_management'])->group(function () {
+                Route::get('/', [AcademicBookController::class, 'index'])->name('admin.academic-book.index');
+                Route::get('/create', [AcademicBookController::class, 'create'])->name('admin.academic-book.create');
+                Route::post('/create', [AcademicBookController::class, 'store'])->name('admin.academic-book.store');
+                Route::get('/{academicBook}', [AcademicBookController::class, 'show'])->name('admin.academic-book.show');
+                Route::get('/{academicBook}/edit', [AcademicBookController::class, 'edit'])->name('admin.academic-book.edit');
+                Route::put('/{academicBook}/edit', [AcademicBookController::class, 'update'])->name('admin.academic-book.update');
+                Route::delete('/{academicBook}/delete', [AcademicBookController::class, 'destroy'])->name('admin.academic-book.delete');
+            }); //end academic book route group
 
 
             /**

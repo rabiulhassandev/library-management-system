@@ -37,7 +37,7 @@ class Book extends Model
     ];
 
 
-    protected static $cacheKey = '__library_management__';
+    protected static $cacheKey = '__books_management__';
 
 
 
