@@ -4,7 +4,7 @@
         <div class="container py-5">
             <div class="card shadow border-0" style="border-radius: 0px">
                 <div class="card-header border-0 bg-primary">
-                    <h3 class="text-white">সকল বইসমূহ</h3>
+                    <h3 class="text-white">একাডেমিক বইসমূহ</h3>
                 </div>
                 <div class="card-body">
 

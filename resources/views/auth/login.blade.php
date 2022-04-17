@@ -34,7 +34,7 @@
             </div>
             <div class="sign-info text-center">
                 <button type="submit" class="btn btn-white d-block w-100 btn-lg mb-2">Login</button>
-                <span class="text-secondary d-inline-block line-height-2">You Don't have any account? <a href="/register" class="text-white">Registration</a></span>
+                <span class="text-secondary d-inline-block line-height-2">You Don't have any account? <a href="/registration" class="text-white">Registration</a></span>
             </div>
         </form>
     </div>

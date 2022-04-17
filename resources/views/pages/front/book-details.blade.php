@@ -22,7 +22,7 @@
 
                             <div class="pt-3">
                                 <a href="#" class="default-outline-btn">একটু পড়ে দেখুন</a>
-                                <a href="#" class="default-btn">রিকুয়েস্ট পাঠান</a>
+                                <a href="/book-request" class="default-btn">রিকুয়েস্ট পাঠান</a>
                             </div>
                         </div>
                     </div>

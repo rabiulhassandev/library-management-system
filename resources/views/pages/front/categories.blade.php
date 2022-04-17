@@ -2,10 +2,10 @@
     <section id="categories_page">
         <div class="container py-5">
             <div class="card shadow border-0" style="border-radius: 0px">
+                <div class="card-header border-0 bg-primary">
+                    <h3 class="text-white ">ক্যাটাগরি সমূহ</h3>
+                </div>
                 <div class="card-body">
-                    <h2 class="text-primary text-center">সকল  ক্যাটাগরি সমূহ</h2>
-
-
                     <div class="pt-3 category-list">
                         <a href="#" class="category-card">
                             <div class="category-card-box">

@@ -1,78 +1,47 @@
 <x-auth-layout>
-    <x-auth-card>
-        <x-slot name="title">
-            <h5 class="text-primary mb-2 mt-4">Two Factor Challenge !</h5>
-            <p class="text-muted">
-                Check Your Google Authenticator Application And Entering The
-                Authentication Code.
-            </p>
-        </x-slot>
+    <div class="card m-auto" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.2)">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="text-white mb-2">Two Factor Challenge !</h5>
+                <span class="text-white font-weight-300">
+                    Check Your Google Authenticator Application And Entering The
+                    Authentication Code.
+                </span>
+            </div>
 
-        <x-validation-errors class="mb-4" />
+            <x-validation-errors class="my-4" />
 
-        @if (session('status'))
-        <h5 class="mb-4  text-success">
-            {{ session('status') }}
-        </h5>
-        @endif
-
-        <div x-data="{ recovery: false }">
-            <p class="mb-4 text-sm text-secondary" x-show="! recovery">
-                {{ __('Please confirm access to your account by entering the authentication code provided by your
-                authenticator application.') }}
-            </p>
-
-            <p class="mb-4 text-sm text-secondary" x-show="recovery">
-                {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
-            </p>
-
-            <x-jet-validation-errors class="mb-4" />
-
-            <form method="POST" class="form-horizontal mt-4 pt-2" action="{{ route('two-factor.login') }}">
-                @csrf
-
-                <div class="mt-4" x-show="! recovery">
-                    <label for="code">{{ __('Code') }}</label>
-                    <input id="code" class="form-control" type="text" inputmode="numeric" name="code" autofocus
-                        x-ref="code" autocomplete="one-time-code" />
-                </div>
-
-                <div class="mt-4" x-show="recovery">
-                    <label for="recovery_code">{{ __('Recovery Code') }}</label>
-                    <input id="recovery_code" class="form-control" type="text" name="recovery_code"
-                        x-ref="recovery_code" autocomplete="one-time-code" />
-                </div>
-
-                <div class="d-flex align-items-center justify-content-end mt-4">
-                    <button type="button" class="text-sm text-muted btn btn-inline" x-show="! recovery" x-on:click="
-                                                recovery = true;
-                                                $nextTick(() => { $refs.recovery_code.focus() })
-                                            ">
-                        {{ __('Use a recovery code') }}
-                    </button>
-
-                    <button type="button" class="text-sm text-muted btn btn-inline" x-show="recovery" x-on:click="
-                                                recovery = false;
-                                                $nextTick(() => { $refs.code.focus() })
-                                            ">
-                        {{ __('Use an authentication code') }}
-                    </button>
-
-                    <button class="btn btn-primary w-100 waves-effect waves-light">
-                        {{ __('Log in') }}
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <x-slot name="footer">
-            @if (Route::has('register'))
-            <p>Don't have an account ?
-                <a href="{{ route('register') }}" class="fw-bold text-white">
-                    Register
-                </a>
-            </p>
+            @if (session('status'))
+            <h5 class="mb-4  text-success">
+                {{ session('status') }}
+            </h5>
             @endif
-        </x-slot>
-    </x-auth-card>
+
+            <div x-data="{ recovery: false }">
+
+                <form method="POST" class="form-horizontal" action="{{ route('two-factor.login') }}">
+                    @csrf
+
+                    <div class="mt-4" x-show="! recovery">
+                        <label for="code" class="text-white">{{ __('Code') }}</label>
+                        <input id="code" class="form-control" type="text" inputmode="numeric" name="code" autofocus
+                            x-ref="code" placeholder="Enter your code" autocomplete="one-time-code" />
+                    </div>
+
+                    <div class="mt-4" x-show="recovery">
+                        <label for="recovery_code" class="text-white">{{ __('Recovery Code') }}</label>
+                        <input id="recovery_code" class="form-control" type="text" name="recovery_code"
+                            x-ref="recovery_code" placeholder="Enter your recovery code" autocomplete="one-time-code" />
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="btn btn-lg btn-primary w-100 waves-effect waves-light">
+                            {{ __('Log in') }}
+                        </button>
+                        <span class="text-secondary d-inline-block line-height-2 pt-2">You Don't have any account? <a href="/registration" class="text-white">Registration</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </x-auth-layout>

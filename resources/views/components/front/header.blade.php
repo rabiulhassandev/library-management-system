@@ -40,7 +40,7 @@
                         <a class="nav-link" href="/books">বই সমূহ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/acadamic-books">একাডেমিক বই</a>
+                        <a class="nav-link" href="/academic-books">একাডেমিক বই</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/categories">ক্যাটাগরি</a>
