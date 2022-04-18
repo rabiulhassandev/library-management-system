@@ -24,7 +24,7 @@
                                     <div class="form-group pt-3">
                                         <label for="phone"><b>ফোনঃ</b></label>
                                         <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="form-control" placeholder="আপনার ফোন নাম্বার লিখুন..." required>
-                                        @error('name')
+                                        @error('phone')
                                         <p class="text-danger pt-2">{{ $message }}</p>
                                         @enderror
                                     </div>

@@ -11,7 +11,7 @@
                             <div class="avatar-content"><i class="ri-award-line"></i></div>
                         </div>
                         <div class="text-center pt-2">
-                            <h2 class="my-2 text-white">Welcome <span class="text-capitalize">Saiful Islam</span></h2>
+                            <h2 class="my-2 text-white">Welcome <span class="text-capitalize">{{ auth()->user()->name }},</span></h2>
                         </div>
                     </div>
                 </div>

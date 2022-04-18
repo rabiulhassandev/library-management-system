@@ -15,8 +15,14 @@
             </div>
             <div class="col-md-3 py-3">
                 <div class="d-flex justify-content-lg-end justify-content-center">
-                    <a href="/registration" class="default-outline-btn">রেজিষ্ট্রেশন</a>
-                    <a href="/login" class="default-btn mx-1">লগইন</a>
+
+                    @guest
+                        <a href="/registration" class="default-outline-btn">রেজিষ্ট্রেশন</a>
+                        <a href="/login" class="default-btn mx-1">লগইন</a>
+                    @else
+                    <x-logout class="default-outline-btn">লগআউট</x-logout>
+                    <a href="/dashboard" class="default-btn mx-1">ড্যাশবোর্ড</a>
+                    @endguest
                 </div>
 
             </div>

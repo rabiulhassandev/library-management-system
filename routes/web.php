@@ -26,7 +26,7 @@ Route::prefix('/')->group(function () {
     Route::get('/books', [HomeController::class, 'books'])->name('home.books');
     Route::get('/academic-books', [HomeController::class, 'academicBooks'])->name('home.academic-books');
     Route::get('/book-details', [HomeController::class, 'bookDetails'])->name('home.book-details');
-    Route::get('/book-request', [HomeController::class, 'bookRequest'])->name('home.book-request');
+    Route::get('/book-request', [HomeController::class, 'bookRequest'])->name('home.book-request')->middleware(['auth', 'role:User']);
     Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('home.contact-us');
     Route::get('/categories', [HomeController::class, 'categories'])->name('home.categories');
     Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('home.about-us');
@@ -35,5 +35,6 @@ Route::prefix('/')->group(function () {
 
     // Contact Us Form
     Route::post('/contact-us', [HomeController::class, 'contactUsFrom'])->name('home.contact-us-form');
+    Route::post('/user-registration', [HomeController::class, 'userRegistration'])->name('home.user-registration');
 
 });

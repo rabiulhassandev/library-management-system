@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<!-- toastr Css -->
+<link rel="stylesheet" href="{{admin_asset('libs/toastr/toastr.min.css')}}">
 <!-- Font CSS -->
 <link rel="stylesheet" href="{{ admin_asset('fonts/my-fonts/font.css') }}">
 <!-- Custom CSS -->

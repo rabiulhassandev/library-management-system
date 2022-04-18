@@ -77,8 +77,8 @@ class RoleTableSeeder extends Seeder
             Permission::create(['name' => $permission])->assignRole($Developer);
         }
 
-        $Admin->givePermissionTo([]);
-        $User->givePermissionTo([]);
+        $Admin->givePermissionTo(['user_status_management', 'book_transition_management']);
+        $User->givePermissionTo(['slider_management']);
 
 
 

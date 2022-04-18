@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Slider;
+use App\Models\ContactUs;
+use App\Models\Admin\Role;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Admin\UserStatus;
 use App\Models\Admin\PageBuilder;
-use App\Models\ContactUs;
-use App\Models\Slider;
+use Laravel\Fortify\Rules\Password;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -87,7 +92,33 @@ class HomeController extends Controller
 
         // flash message
         Session::flash('success', 'Successfully Stored New Book Writer Information.');
-        return \redirect()->route('home.contact-us');
+        return \redirect()->back();
+    }
+
+
+    // User Registration
+    public function userRegistration(Request $request){
+        $data = $request->all();
+        // seo
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => 'required',
+            'password' => ['required', 'string', new Password, 'confirmed'],
+        ]);
+        if ($request->hasFile('avatar')) {
+            $request->validate([
+                'avatar' => 'image',
+            ]);
+
+            $data['profile_photo_path'] = $request->avatar->store('users');
+        }
+        $data['password'] = Hash::make($request->password);
+        $data['role'] = "User";
+        $user = User::create($data)->assignRole($data['role']);
+        // flash message
+        Session::flash('success', 'আপনার রেজিষ্ট্রেশন সম্পন্ন হয়েছে। আপনি এখন লগইন করতে পারবেন।');
+        return \redirect()->back();
     }
 
 }

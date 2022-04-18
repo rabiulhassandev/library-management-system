@@ -69,7 +69,9 @@ class UserController extends Controller
         $this->seo()->setTitle(config('theme.cdata.title'));
         $this->seo()->setDescription(\config('theme.cdata.description'));
 
+
         $users = User::cacheData();
+
         return \view('pages.admin.user.index', \compact('users'));
     }
 

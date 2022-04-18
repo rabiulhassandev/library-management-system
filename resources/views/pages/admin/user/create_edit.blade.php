@@ -68,11 +68,20 @@
                                 <select class="form-control show-tick" name="role" id="role" required>
                                     <option selected disabled>--Select User Role--</option>
                                     @foreach (App\Models\Admin\Role::cacheData() as $role)
-                                    <option value="{{ $role->id }}"
+
+                                    @if ($role->name == 'Developer' && get_user_role()->name == 'Developer')
+                                        <option value="{{ $role->id }}"
                                         {{config('theme.cdata.edit')?selected(get_user_role($data)->
                                         id??'',$role->id):null}}>
                                         {{ $role->name }}
-                                    </option>
+                                        </option>
+                                    @elseif ($role->name != 'Developer')
+                                        <option value="{{ $role->id }}"
+                                        {{config('theme.cdata.edit')?selected(get_user_role($data)->
+                                        id??'',$role->id):null}}>
+                                        {{ $role->name }}
+                                        </option>
+                                    @endif
                                     @endforeach
                                 </select>
                                 @error('role')
@@ -80,6 +89,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
                         <div class="col-md-6 pt-1 pb-1">
                             <div class="form-group">

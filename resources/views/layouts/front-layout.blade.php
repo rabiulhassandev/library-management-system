@@ -24,5 +24,6 @@
         {{-- Scripts --}}
         <x-front.scripts/>
         {{-- Scripts --}}
+        <x-toster-session />
     </body>
 </html>
