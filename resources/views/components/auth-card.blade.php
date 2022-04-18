@@ -7,7 +7,7 @@
                         <div class="card-body">
                             <div class="px-2 py-3">
                                 <div class="text-center">
-                                    <x-logo type="dark" />
+                                    {{-- <x-logo type="dark" /> --}}
                                     @isset($title){{ $title }} @endisset
                                 </div>
                                 {{ $slot }}

@@ -10,6 +10,9 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Admin\UserStatus;
 use App\Models\Admin\PageBuilder;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\Profile;
 use Laravel\Fortify\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -20,19 +23,25 @@ class HomeController extends Controller
     public function index()
     {
         $collection['sliders'] = Slider::cacheData();
+        $collection['books'] = Book::cacheData();
+        $collection['categories'] = Category::cacheData();
+        $collection['profiles'] = Profile::cacheData();
+
         return \view('pages.front.home', \compact('collection'));
     }
 
     // Books Page
     public function books()
     {
-        return \view('pages.front.books');
+        $collection = Book::cacheData();
+        return \view('pages.front.books', \compact('collection'));
     }
 
     // Academic Books Page
     public function academicBooks()
     {
-        return \view('pages.front.academic-books');
+        $collection = Book::cacheData();
+        return \view('pages.front.academic-books', \compact('collection'));
     }
 
     // Book Details Page
@@ -68,7 +77,8 @@ class HomeController extends Controller
     // Categories Page
     public function categories()
     {
-        return \view('pages.front.categories');
+        $collection = Book::cacheData();
+        return \view('pages.front.categories', \compact('collection'));
     }
 
     // Pages

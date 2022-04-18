@@ -19,6 +19,8 @@
 
 
     {{-- Recently Books Section --}}
+    @isset($collection['books'])
+    @if (count($collection['books']) == 0)
     <section id="recent_books_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -79,10 +81,14 @@
             </div>
         </div>
     </section>
+    @endif
+    @endisset
     {{-- Recently Books Section --}}
 
 
     {{-- Categories Section --}}
+    @isset($collection['categories'])
+    @if (count($collection['categories']) == 0)
     <section id="category_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -117,10 +123,14 @@
             </div>
         </div>
     </section>
+    @endif
+    @endisset
     {{-- Categories Section --}}
 
 
-    {{-- Categories Section --}}
+    {{-- Profiles Section --}}
+    @isset($collection['profiles'])
+    @if (count($collection['profiles']) == 0)
     <section id="member_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -161,7 +171,9 @@
             </div>
         </div>
     </section>
-    {{-- Categories Section --}}
+    @endif
+    @endisset
+    {{-- Profiles Section --}}
 
 
     {{-- Contact Us Section --}}
