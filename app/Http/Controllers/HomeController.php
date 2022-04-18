@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin\PageBuilder;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Admin\PageBuilder;
+use App\Models\ContactUs;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -65,6 +68,24 @@ class HomeController extends Controller
     public function page(PageBuilder $page)
     {
         return view('pages.front.page', compact('page'));
+    }
+
+
+    // Contact Us Form
+    function contactUsFrom(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'subject' => 'required',
+            'description' => 'required'
+        ]);
+        $data = $request->all();
+        $data['created'] = date('d M Y');
+        $contactUs = ContactUs::create($data);
+
+        // flash message
+        Session::flash('success', 'Successfully Stored New Book Writer Information.');
+        return \redirect()->route('home.contact-us');
     }
 
 }

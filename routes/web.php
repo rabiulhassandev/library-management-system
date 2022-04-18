@@ -32,4 +32,8 @@ Route::prefix('/')->group(function () {
     Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('home.about-us');
     Route::get('/registration', [HomeController::class, 'registration'])->name('home.registration');
     Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');
+
+    // Contact Us Form
+    Route::post('/contact-us', [HomeController::class, 'contactUsFrom'])->name('home.contact-us-form');
+
 });
