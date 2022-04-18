@@ -39,7 +39,8 @@ class RoleTableSeeder extends Seeder
             'report_issue_management',
             // user role edit
             'user_role_edit',
-
+            // Book Request Reply
+            'book_request_reply',
 
 
             // category
@@ -58,6 +59,8 @@ class RoleTableSeeder extends Seeder
             'book_transition_management',
             // Academic Books Transition Management
             'academic_books_management',
+            // Slider Management
+            'slider_management',
         ];
 
         $role = [

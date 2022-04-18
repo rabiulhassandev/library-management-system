@@ -20,6 +20,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SliderController;
 
 /**
  *
@@ -354,6 +355,25 @@ use App\Http\Controllers\ProfileController;
                 Route::put('/{bookTransition}/edit', [BookTransitionController::class, 'update'])->name('admin.book-transition.update');
                 Route::delete('/{bookTransition}/delete', [BookTransitionController::class, 'destroy'])->name('admin.book-transition.delete');
             }); //end Book Transition route group
+
+
+            /**
+            *
+            *
+            * ----------------------------------------------------------
+            * Slider Management
+            * ----------------------------------------------------------
+            *
+            */
+            Route::prefix('slider')->middleware(['permission:slider_management'])->group(function () {
+                Route::get('/', [SliderController::class, 'index'])->name('admin.slider.index');
+                Route::get('/create', [SliderController::class, 'create'])->name('admin.slider.create');
+                Route::post('/create', [SliderController::class, 'store'])->name('admin.slider.store');
+                Route::get('/{slider}', [SliderController::class, 'show'])->name('admin.slider.show');
+                Route::get('/{slider}/edit', [SliderController::class, 'edit'])->name('admin.slider.edit');
+                Route::put('/{slider}/edit', [SliderController::class, 'update'])->name('admin.slider.update');
+                Route::delete('/{slider}/delete', [SliderController::class, 'destroy'])->name('admin.slider.delete');
+            }); //end Slider route group
 
         }); //end dashboard route group
 
