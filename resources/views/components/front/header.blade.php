@@ -2,7 +2,7 @@
     <div class="top-bar mx-auto">
         <div class="row">
             <div class="col-md-3 pt-3">
-                <h5 class="text-primary"><b>ছদাহা <br> ডিজিটাল লাইব্রেরি</b></h5>
+                <h4 class="text-primary"><b>ছদাহা ডিজিটাল লাইব্রেরি</b></h4>
             </div>
             <div class="col-md-6 pt-3">
                 <form action="#" method="POST">

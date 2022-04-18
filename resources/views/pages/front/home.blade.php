@@ -2,6 +2,8 @@
 
 
     {{-- Slider Section --}}
+    @isset($collection['sliders'])
+    @if (count($collection['sliders']) == 0)
     <section id="slider_section">
         <div class="container py-3">
             <div class="owl-carousel owl-theme" id="carousel-slider">
@@ -11,6 +13,8 @@
             </div>
         </div>
     </section>
+    @endif
+    @endisset
     {{-- Slider Section --}}
 
 

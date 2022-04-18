@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Admin\PageBuilder;
 use App\Models\ContactUs;
+use App\Models\Slider;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -13,7 +14,8 @@ class HomeController extends Controller
     // Home Page
     public function index()
     {
-        return \view('pages.front.home');
+        $collection['sliders'] = Slider::cacheData();
+        return \view('pages.front.home', \compact('collection'));
     }
 
     // Books Page
