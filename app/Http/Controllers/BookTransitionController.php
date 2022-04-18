@@ -123,6 +123,12 @@ class BookTransitionController extends Controller
     */
    public function show(BookTransition $bookTransition)
    {
+        \config_set('theme.cdata', [
+            'title' => 'Show Book Request Information',
+            'update' => route(config('theme.cdata.route-name-prefix') . '.update', $bookTransition->id),
+            'description' => 'Edit existing Book Transition Information.'
+
+        ]);
         return \view('pages.admin.book-transition.show', ['item' => $bookTransition]);
    }
 
@@ -162,7 +168,7 @@ class BookTransitionController extends Controller
         $this->seo()->setDescription(\config('theme.cdata.description'));
 
 
-        return \view('pages.admin.book-transition.create_edit', ['item' => $bookTransition]);
+        return \view('pages.admin.book-transition.show', ['item' => $bookTransition]);
     }
 
    /**
@@ -182,7 +188,8 @@ class BookTransitionController extends Controller
        $data['return_date'] = $request->return_date;
        $data['request_status'] = $request->request_status;
        $data['admin_reply_message'] = $request->admin_reply_message;
-       $data['admin_delivery_message'] = $request->admin_delivery_message;
+       $data['admin_delivery_area'] = $request->admin_delivery_area;
+    //    dd($data);
        $bookTransition->update($data);
        // flash message
        Session::flash('success', 'Successfully Updated Book Transition Information .');
