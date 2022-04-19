@@ -6,78 +6,24 @@
                     <h3 class="text-white ">ক্যাটাগরি সমূহ</h3>
                 </div>
                 <div class="card-body">
+                    @isset($collection)
+                    @if(count($collection) > 0)
                     <div class="pt-3 category-list">
-                        <a href="#" class="category-card">
+                        @foreach ($collection as $category)
+                        <a href="{{ route('home.category-book', $category->id) }}" class="category-card">
                             <div class="category-card-box">
-                                <h5>ইসলামিক বই</h5>
+                                <h5>{{ $category->category_name }}</h5>
                             </div>
                         </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>ঐতিহাসিক বই</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>সাহিত্যিক বই</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>বিজ্ঞান</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>হাদিস</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>রচনা</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>ভ্রমন</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>ইসলামিক বই</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>ঐতিহাসিক বই</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>সাহিত্যিক বই</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>বিজ্ঞান</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>হাদিস</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>রচনা</h5>
-                            </div>
-                        </a>
-                        <a href="#" class="category-card">
-                            <div class="category-card-box">
-                                <h5>ভ্রমন</h5>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
+                    @else
+                    <div class="py-5 text-center">
+                        <i class='bx bx-file-find text-secondary' style="font-size: 50px"></i>
+                        <h3 class="text-primary m-0">কোনো তথ্য খুজে পাওয়া যায় নি</h3>
+                    </div>
+                    @endif
+                    @endisset
                 </div>
             </div>
         </div>

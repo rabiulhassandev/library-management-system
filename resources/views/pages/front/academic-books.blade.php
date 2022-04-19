@@ -8,224 +8,27 @@
                 </div>
                 <div class="card-body">
 
+                    @isset($collection)
+                    @if(count($collection) > 0)
                     <div class="pt-3 book-list">
+                        @foreach ($collection as $book)
                         <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
+                            <img src="{{ image_url($book->book_image) }}">
+                            <p class="mb-1">{{ $book->book_name }}</p>
+                            <h6><b class="text-primary">৳ {{ $book->book_price }}</b></h6>
                             <div class="overlay">
-                                <a href="/book-details" class="default-btn btn-sm">বিস্তারিত</a>
+                                <a href="{{ route('home.book-details', $book->id) }}" class="default-btn btn-sm">বিস্তারিত</a>
                             </div>
                         </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Uncle_Chowdhury_and_the_Statue_of_Unity-Pran-46bf3-221015.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Jeno_Rupkothari_Golper_Desh-Shahnaz_Khan-fdeec-219912.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Dushtu_Hati-Mohajatok_-4eb20-219693.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Snow_White_and_the_Seven_Dwarts-Fozle_Nur_Vuiya_Arnob-07233-219559.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Zero_Day_John_Puller_Series-David_Baldacci-7dcaa-221229.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Tin_Goyenda_Volume_156-Shamsuddin_Nawab-f9274-221223.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/the_hunt_for_atlantis_-Adnan_Ahmed_Rijon-768a6-221102.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Uncle_Chowdhury_and_the_Statue_of_Unity-Pran-46bf3-221015.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Jeno_Rupkothari_Golper_Desh-Shahnaz_Khan-fdeec-219912.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Dushtu_Hati-Mohajatok_-4eb20-219693.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Snow_White_and_the_Seven_Dwarts-Fozle_Nur_Vuiya_Arnob-07233-219559.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Zero_Day_John_Puller_Series-David_Baldacci-7dcaa-221229.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Tin_Goyenda_Volume_156-Shamsuddin_Nawab-f9274-221223.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/the_hunt_for_atlantis_-Adnan_Ahmed_Rijon-768a6-221102.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Uncle_Chowdhury_and_the_Statue_of_Unity-Pran-46bf3-221015.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Jeno_Rupkothari_Golper_Desh-Shahnaz_Khan-fdeec-219912.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Dushtu_Hati-Mohajatok_-4eb20-219693.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Snow_White_and_the_Seven_Dwarts-Fozle_Nur_Vuiya_Arnob-07233-219559.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Zero_Day_John_Puller_Series-David_Baldacci-7dcaa-221229.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Tin_Goyenda_Volume_156-Shamsuddin_Nawab-f9274-221223.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/the_hunt_for_atlantis_-Adnan_Ahmed_Rijon-768a6-221102.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <div class="overlay">
-                                <a href="#" class="default-btn btn-sm">বিস্তারিত</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+                    @else
+                    <div class="py-5 text-center">
+                        <i class='bx bx-file-find text-secondary' style="font-size: 50px"></i>
+                        <h3 class="text-primary m-0">কোনো তথ্য খুজে পাওয়া যায় নি</h3>
+                    </div>
+                    @endif
+                    @endisset
                 </div>
             </div>
         </div>

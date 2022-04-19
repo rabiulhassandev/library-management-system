@@ -25,7 +25,7 @@
                     @else
                     <div class="py-5 text-center">
                         <i class='bx bx-file-find text-secondary' style="font-size: 50px"></i>
-                        <h3 class="text-primary m-0">কোনো বই খুজে পাওয়া যায় নি</h3>
+                        <h3 class="text-primary m-0">কোনো তথ্য খুজে পাওয়া যায় নি</h3>
                     </div>
                     @endif
                     @endisset
