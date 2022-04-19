@@ -59,7 +59,7 @@
                             @endif
                         </td>
                         <td>
-                            {{$item->created}}
+                            {{$item->request_date}}
                         </td>
                         <td>
                             @if ($item->status == 'Rejected')

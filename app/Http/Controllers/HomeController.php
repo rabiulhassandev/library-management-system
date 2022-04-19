@@ -61,7 +61,7 @@ class HomeController extends Controller
     // Book Request Page
     public function bookRequest(Book $book)
     {
-        return \view('pages.front.book-request', ['collection' => $book]);
+        return \view('pages.front.book-request', ['item' => $book]);
     }
 
     // Contact Us Page
@@ -151,4 +151,22 @@ class HomeController extends Controller
         return \redirect()->back();
     }
 
+
+    // Book Request Send
+    public function bookRequestSend(Book $book, Request $request){
+        $data = $request->all();
+
+        $request->validate([
+            'book_duration' => 'required',
+            'book_address' => 'required',
+            'admin_delivery_area' => 'required',
+        ]);
+        $data['book_id'] = $book->id;
+        $data['request_date'] = date('d M Y');
+        $data['user_id'] = auth()->user()->id;
+        $bookRequest = BookTransition::create($data);
+        // flash message
+        Session::flash('success', 'আপনার রিকুয়েস্ট সফল ভাবে পাঠানো হয়েছে। এডমিন যদি আপনার রিকুয়েস্ট এপ্রোভ করে তাহলে আপনি একটি মেইল পাবেন।');
+        return \redirect()->route('home.book-details', $book->id);
+    }
 }

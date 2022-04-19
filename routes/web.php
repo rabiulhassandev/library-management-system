@@ -35,6 +35,8 @@ Route::prefix('/')->group(function () {
     Route::get('/registration', [HomeController::class, 'registration'])->name('home.registration');
     Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');
 
+    Route::post('/book-request-send/{book}', [HomeController::class, 'bookRequestSend'])->name('home.book-request-send')->middleware(['auth', 'role:User']);
+
     // Contact Us Form
     Route::post('/contact-us', [HomeController::class, 'contactUsFrom'])->name('home.contact-us-form');
     Route::post('/user-registration', [HomeController::class, 'userRegistration'])->name('home.user-registration');

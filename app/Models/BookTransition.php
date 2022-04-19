@@ -18,6 +18,7 @@ class BookTransition extends Model
         'return_date',
         'admin_reply_message',
         'admin_delivery_area',
+        'request_status',
         'book_id',
         'user_id',
     ];
