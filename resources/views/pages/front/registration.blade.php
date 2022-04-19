@@ -25,14 +25,14 @@
                             </div>
                             <div class="col-md-6 pt-3">
                                 <label for="password">পাসওয়ার্ডঃ</label>
-                                <input type="text" name="password" id="password" class="form-control" placeholder="আপনার পাসওয়ার্ডঃ লিখুন..." autocomplete="new-password" required>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="আপনার পাসওয়ার্ডঃ লিখুন..." autocomplete="new-password" required>
                                 @error('password')
                                     <p class="text-danger pt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="col-md-6 pt-3">
                                 <label for="password_confirmation">কনফার্ম পাসওয়ার্ডঃ</label>
-                                <input type="text" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="আপনার পাসওয়ার্ড লিখুন..." autocomplete="new-password" required>
+                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="আপনার পাসওয়ার্ড লিখুন..." autocomplete="new-password" required>
                                 @error('password_confirmation')
                                     <p class="text-danger pt-2">{{ $message }}</p>
                                 @enderror

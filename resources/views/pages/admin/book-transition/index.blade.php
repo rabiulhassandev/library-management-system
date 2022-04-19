@@ -70,10 +70,17 @@
                                 <button class="btn btn-secondary">Pending</button>
                             @endif
                         </td>
-                        <td>
-                            <x-btn.action :view="[route(config('theme.cdata.route-name-prefix').'.show',$item->id)]"
-                                :delete="[route(config('theme.cdata.route-name-prefix').'.delete',$item->id)]" />
-                        </td>
+
+                        @can('view_all_book_transition')
+                            <td>
+                                <x-btn.action :view="[route(config('theme.cdata.route-name-prefix').'.show',$item->id)]"
+                                    :delete="[route(config('theme.cdata.route-name-prefix').'.delete',$item->id)]" />
+                            </td>
+                        @else
+                            <td>
+                                <x-btn.action :view="[route(config('theme.cdata.route-name-prefix').'.show',$item->id)]" />
+                            </td>
+                        @endcan
                         </tr>
                         @empty
                         <tr>

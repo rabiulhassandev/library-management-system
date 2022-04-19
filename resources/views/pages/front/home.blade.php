@@ -3,13 +3,13 @@
 
     {{-- Slider Section --}}
     @isset($collection['sliders'])
-    @if (count($collection['sliders']) == 0)
+    @if (count($collection['sliders']) > 0)
     <section id="slider_section">
         <div class="container py-3">
             <div class="owl-carousel owl-theme" id="carousel-slider">
-                <div class="item" style="background-image: url('https://ds.rokomari.store/rokomari110/banner/182fa3e6-9310-4f07-8ddd-48c823914cff.png')"></div>
-                <div class="item" style="background-image: url('https://ds.rokomari.store/rokomari110/banner/62ca6f99-fad3-451c-8cdc-faebc30a05e4.png')"></div>
-                <div class="item" style="background-image: url('https://ds.rokomari.store/rokomari110/banner/8b406570-2c1b-421e-97ef-bef868b9ce1a.png')"></div>
+                @foreach ($collection['sliders'] as $slider)
+                    <div class="item" style="background-image: url('{{ image_url($slider->image) }}')"></div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -20,7 +20,7 @@
 
     {{-- Recently Books Section --}}
     @isset($collection['books'])
-    @if (count($collection['books']) == 0)
+    @if (count($collection['books']) > 0)
     <section id="recent_books_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -37,45 +37,17 @@
                         </div>
                     </div>
                     <div class="owl-carousel owl-theme" id="recent-books">
+                        @foreach ($collection['books'] as $book)
                         <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Podartho_Bichitra_Physics_1st_O_2nd_Part-Ajoy_Sarkar-910de-72178.png">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
+                            <img src="{{ image_url($book->book_image) }}">
+                            <p class="mb-1">{{ $book->book_name }}</p>
+                            <h6><b class="text-primary">৳ {{ $book->book_price }}</b></h6>
+                            <a href="{{ route('home.book-details', $book->id) }}" class="default-outline-btn  btn-sm w-100">বিস্তারিত</a>
                         </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/130592359754_125858.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
-                        </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/Amii_Masud_Rana-Kazi_Anower_Hossain-345f5-230862.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
-                        </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/b016bcc55cc4_53626.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
-                        </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/96b48ca6a_4693.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
-                        </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/9875ca3f5_210700.jpg">
-                            <p class="mb-1">সাহিত্য কলোনি</p>
-                            <h6><b class="text-primary">৳ ৩০০</b></h6>
-                            <button class="default-outline-btn  btn-sm w-100">বিস্তারিত</button>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="/books" class="default-btn">সমস্ত বই দেখুন</a>
+                        <a href="{{ route('home.books') }}" class="default-btn">সমস্ত বই দেখুন</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +60,7 @@
 
     {{-- Categories Section --}}
     @isset($collection['categories'])
-    @if (count($collection['categories']) == 0)
+    @if (count($collection['categories']) > 0)
     <section id="category_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -105,19 +77,16 @@
                         </div>
                     </div>
                     <div class="owl-carousel owl-theme" id="categories">
-                        <a href="#">
+                        @foreach ($collection['categories'] as $category)
+                        <a href="{{ route('home.category-book', $category->id) }}">
                             <div class="item">
-                                <h5 class="m-0">ইসলামিক বই</h5>
+                                <h5 class="m-0">{{ $category->category_name }}</h5>
                             </div>
                         </a>
-                        <a href="#">
-                            <div class="item">
-                                <h5 class="m-0">তথ্য ও যোগাযোগ প্রযুক্তি</h5>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="/categories" class="default-outline-btn">সমস্ত ক্যাটাগরি দেখুন</a>
+                        <a href="{{ route('home.categories') }}" class="default-outline-btn">সমস্ত ক্যাটাগরি দেখুন</a>
                     </div>
                 </div>
             </div>
@@ -130,7 +99,7 @@
 
     {{-- Profiles Section --}}
     @isset($collection['profiles'])
-    @if (count($collection['profiles']) == 0)
+    @if (count($collection['profiles']) > 0)
     <section id="member_section">
         <div class="container py-4">
             <div class="card shadow border-0" style="border-radius: 0px">
@@ -147,25 +116,19 @@
                         </div>
                     </div>
                     <div class="owl-carousel owl-theme" id="members">
+                        @foreach ($collection['profiles'] as $profile)
                         <div class="item">
-                            <img src="https://sports-forum.com/wp-content/uploads/2019/11/Weston-Lowe-400-x-400.png">
-                            <h4>সাইফুল ইসলাম</h4>
-                            <h6 class="m-0 font-italic">সাধারণ সদস্য</h6>
-                            <small class="m-0">sayfulislam@gmail.com</small><br>
-                            <small class="m-0">০১৮৩২০২৯১৮২</small><br>
-                            <small>সাতকানিয়া, চট্টগ্রাম</small>
+                            <img src="{{ image_url($profile->image) }}">
+                            <h4>{{ $profile->name }}</h4>
+                            <h6 class="m-0 font-italic">{{ $profile->designation }}</h6>
+                            <small class="m-0">{{ $profile->email }}</small><br>
+                            <small class="m-0">{{ $profile->phone }}</small><br>
+                            <small>{{ $profile->address }}</small>
                         </div>
-                        <div class="item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/LinkedIn_profil_maxime-remillard_400x400.png">
-                            <h4>আশিকুল ইসলাম সাউন</h4>
-                            <h6 class="m-0 font-italic">সিনিয়র সদস্য</h6>
-                            <small class="m-0">ashikul@gmail.com</small><br>
-                            <small class="m-0">০১৮৩২০২৯১৮২</small><br>
-                            <small>সাতকানিয়া, চট্টগ্রাম, বাংলাদেশ</small>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="/members" class="default-btn">সমস্ত দেখুন</a>
+                        <a href="{{ route('home.about-us') }}" class="default-btn">সমস্ত দেখুন</a>
                     </div>
                 </div>
             </div>

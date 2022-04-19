@@ -25,10 +25,11 @@ Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/books', [HomeController::class, 'books'])->name('home.books');
     Route::get('/academic-books', [HomeController::class, 'academicBooks'])->name('home.academic-books');
-    Route::get('/book-details', [HomeController::class, 'bookDetails'])->name('home.book-details');
+    Route::get('/book-details/{book}', [HomeController::class, 'bookDetails'])->name('home.book-details');
     Route::get('/book-request', [HomeController::class, 'bookRequest'])->name('home.book-request')->middleware(['auth', 'role:User']);
     Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('home.contact-us');
     Route::get('/categories', [HomeController::class, 'categories'])->name('home.categories');
+    Route::get('/category-book/{$category}', [HomeController::class, 'categoryBooks'])->name('home.category-book');
     Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('home.about-us');
     Route::get('/registration', [HomeController::class, 'registration'])->name('home.registration');
     Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');

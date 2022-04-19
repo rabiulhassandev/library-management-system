@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicBook;
 use App\Models\User;
 use App\Models\Slider;
 use App\Models\ContactUs;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\UserStatus;
 use App\Models\Admin\PageBuilder;
 use App\Models\Book;
+use App\Models\BookTransition;
 use App\Models\Category;
 use App\Models\Profile;
 use Laravel\Fortify\Rules\Password;
@@ -22,7 +24,7 @@ class HomeController extends Controller
     // Home Page
     public function index()
     {
-        $collection['sliders'] = Slider::cacheData();
+        $collection['sliders'] = Slider::cacheData()->where('status', 'Active');
         $collection['books'] = Book::cacheData();
         $collection['categories'] = Category::cacheData();
         $collection['profiles'] = Profile::cacheData();
@@ -40,20 +42,20 @@ class HomeController extends Controller
     // Academic Books Page
     public function academicBooks()
     {
-        $collection = Book::cacheData();
+        $collection = AcademicBook::cacheData();
         return \view('pages.front.academic-books', \compact('collection'));
     }
 
     // Book Details Page
-    public function bookDetails()
+    public function bookDetails(Book $book)
     {
-        return \view('pages.front.book-details');
+        return \view('pages.front.book-details', ['collection' => $book]);
     }
 
     // Book Request Page
-    public function bookRequest()
+    public function bookRequest(Book $book)
     {
-        return \view('pages.front.book-request');
+        return \view('pages.front.book-request', ['collection' => $book]);
     }
 
     // Contact Us Page
@@ -71,7 +73,8 @@ class HomeController extends Controller
     // About Us Page
     public function aboutUs()
     {
-        return \view('pages.front.about-us');
+        $collection = PageBuilder::cacheData()->where('slug', 'about-us');
+        return \view('pages.front.about-us', compact('collection'));
     }
 
     // Categories Page
@@ -79,6 +82,13 @@ class HomeController extends Controller
     {
         $collection = Book::cacheData();
         return \view('pages.front.categories', \compact('collection'));
+    }
+
+    // category Books Page
+    public function categoryBooks(Category $category)
+    {
+        $collection = Book::cacheData()->where('category_id', $category->id);
+        return \view('pages.front.books', \compact('collection'));
     }
 
     // Pages

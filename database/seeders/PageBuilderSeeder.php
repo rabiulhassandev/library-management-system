@@ -932,7 +932,14 @@ class PageBuilderSeeder extends Seeder
 </div>
 </div>',
                 'image' => NULL,
-            ]
+                ],
+                [
+                    'title' => 'About Us',
+                    'slug' => 'about-us',
+                    'meta_keywords' => NULL,
+                    'status' => '1',
+                    'body' => '<h1>About Us Page</h1>',
+                ]
 
 
         ];

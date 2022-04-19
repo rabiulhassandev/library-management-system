@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\BookTransition;
+use App\Notifications\BookRequestNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
 
 class BookTransitionController extends Controller
@@ -52,9 +54,15 @@ class BookTransitionController extends Controller
        $this->seo()->setTitle(config('theme.cdata.title'));
        $this->seo()->setDescription(\config('theme.cdata.description'));
 
-       $collection = BookTransition::cacheData();
+
     //    $collection = BookTransition::all();
     //    dd($collection);
+
+        if(!can('view_all_book_transition')){
+            $collection = BookTransition::cacheData();
+        }else{
+            $collection = BookTransition::cacheData()->where('user_id', auth()->user()->id);
+        }
 
        return \view('pages.admin.book-transition.index', \compact('collection'));
    }
@@ -191,6 +199,9 @@ class BookTransitionController extends Controller
        $data['admin_delivery_area'] = $request->admin_delivery_area;
     //    dd($data);
        $bookTransition->update($data);
+
+       Notification::send($bookTransition->user, new BookRequestNotification($bookTransition));
+
        // flash message
        Session::flash('success', 'Successfully Updated Book Transition Information .');
        return \redirect()->route(config('theme.cdata.route-name-prefix') . '.index');

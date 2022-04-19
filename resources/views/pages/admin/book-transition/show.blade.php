@@ -93,8 +93,9 @@
                     <div class="card-body">
                         <form enctype="multipart/form-data"
                     action="{{ config('theme.cdata.update') }}"
-                    method="put" class="needs-validation" novalidate>
+                    method="POST" class="needs-validation" novalidate>
                         @csrf
+                        @method('PUT')
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group pt-1 pb-1">

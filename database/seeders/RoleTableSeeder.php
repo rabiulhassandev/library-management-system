@@ -41,6 +41,8 @@ class RoleTableSeeder extends Seeder
             'user_role_edit',
             // Book Request Reply
             'book_request_reply',
+            // View All Book Transition
+            'view_all_book_transition',
 
 
             // category
