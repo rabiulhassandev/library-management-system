@@ -39,6 +39,12 @@ class HomeController extends Controller
         return \view('pages.front.books', \compact('collection'));
     }
 
+    // Book Details Page
+    public function bookDetails(Book $book)
+    {
+        return \view('pages.front.book-details', ['item' => $book]);
+    }
+
     // Academic Books Page
     public function academicBooks()
     {
@@ -47,9 +53,9 @@ class HomeController extends Controller
     }
 
     // Book Details Page
-    public function bookDetails(Book $book)
+    public function academicBooksDetails(AcademicBook $academicBook)
     {
-        return \view('pages.front.book-details', ['collection' => $book]);
+        return \view('pages.front.academic-book-details', ['item' => $academicBook]);
     }
 
     // Book Request Page
@@ -73,14 +79,18 @@ class HomeController extends Controller
     // About Us Page
     public function aboutUs()
     {
-        $collection = PageBuilder::cacheData()->where('slug', 'about-us');
+        $collection['about-us'] = PageBuilder::cacheData()->where('slug', 'about-us');
+        $collection['mentor-profiles'] = Profile::cacheData()->where('type', 'Mentor');
+        $collection['founder-profiles'] = Profile::cacheData()->where('type', 'Founder');
+        $collection['volunteer-profiles'] = Profile::cacheData()->where('type', 'Volunteer');
+
         return \view('pages.front.about-us', compact('collection'));
     }
 
     // Categories Page
     public function categories()
     {
-        $collection = Book::cacheData();
+        $collection = Category::cacheData();
         return \view('pages.front.categories', \compact('collection'));
     }
 

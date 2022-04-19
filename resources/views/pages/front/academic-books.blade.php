@@ -13,11 +13,11 @@
                     <div class="pt-3 book-list">
                         @foreach ($collection as $book)
                         <div class="book-card">
-                            <img src="{{ image_url($book->book_image) }}">
+                            <img src="{{ image_url($book->image) }}">
                             <p class="mb-1">{{ $book->book_name }}</p>
-                            <h6><b class="text-primary">৳ {{ $book->book_price }}</b></h6>
+                            <h6><b class="text-primary">{{ $book->created }}</b></h6>
                             <div class="overlay">
-                                <a href="{{ route('home.book-details', $book->id) }}" class="default-btn btn-sm">বিস্তারিত</a>
+                                <a href="{{ route('home.academic-book-details', $book->id) }}" class="default-btn btn-sm">বিস্তারিত</a>
                             </div>
                         </div>
                         @endforeach
