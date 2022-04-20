@@ -16,7 +16,7 @@ class CreateBookWritersTable extends Migration
         Schema::create('book_writers', function (Blueprint $table) {
             $table->id();
             $table->string('writer_name')->unique();
-            $table->text('writer_slug')->unique();
+            $table->text('writer_slug')->nullable();
             $table->text('writer_description')->nullable();
             $table->timestamps();
         });

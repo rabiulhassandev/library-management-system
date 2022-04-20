@@ -939,6 +939,7 @@ class PageBuilderSeeder extends Seeder
                     'meta_keywords' => NULL,
                     'status' => '1',
                     'body' => '<h1>About Us Page</h1>',
+                    'image' => NULL,
                 ]
 
 

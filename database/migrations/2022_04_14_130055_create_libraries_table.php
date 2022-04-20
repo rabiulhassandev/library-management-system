@@ -16,7 +16,7 @@ class CreateLibrariesTable extends Migration
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
             $table->string('library_name')->unique();
-            $table->string('library_slug')->unique();
+            $table->string('library_slug')->nullable();
             $table->text('library_phone')->nullable();
             $table->text('library_address')->nullable();
             $table->text('library_map')->nullable();
