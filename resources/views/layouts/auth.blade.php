@@ -11,7 +11,7 @@
 </head>
 
 
-<body class="authentication-bg" style="background: url(https://wallpaperfordesktop.com/wp-content/uploads/2021/12/Gradient-Wallpaper.jpg); background-size: cover;">
+<body class="authentication-bg" style="background: url('{{ front_asset('images/bg.jpg') }}'); background-size: cover;">
     <!-- vue page -->
 
     <div id="loading" style="display: none;">
