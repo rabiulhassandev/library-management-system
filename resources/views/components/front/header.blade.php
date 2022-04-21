@@ -1,8 +1,8 @@
 <header id="header_section" class="bg-white">
     <div class="top-bar mx-auto">
-        <div class="row">
+        <div class="row p-2">
             <div class="col-md-3 pt-3">
-                <h4 class="text-primary"><b>ছদাহা ডিজিটাল লাইব্রেরি</b></h4>
+                <h4 class="text-primary text-center"><b>ছদাহা ডিজিটাল লাইব্রেরি</b></h4>
             </div>
             <div class="col-md-6 pt-3">
                 <form action="#" method="POST">

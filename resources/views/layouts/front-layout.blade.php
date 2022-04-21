@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="bn">
     <head>
+        {{-- meta manager --}}
+        <x-meta-manager />
+        {{-- favicon --}}
+        <x-favicon />
         {{-- Styles --}}
         <x-front.styles/>
         {{-- Styles --}}
