@@ -15,6 +15,9 @@ class Profile extends Model
         'designation',
         'phone',
         'email',
+        'facebook',
+        'whatsApp',
+        'description',
         'address',
         'image',
         'type'

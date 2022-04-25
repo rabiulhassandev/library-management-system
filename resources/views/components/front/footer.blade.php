@@ -17,21 +17,21 @@
             <div class="col-md-2 pt-2">
                 <h4 class="text-primary"><b>গরুত্বপূর্ণ লিংক</b></h4>
                 <div class="pt-3 list">
-                    <a href="#" target="_blank">রকমারি.com</a>
-                    <a href="#" target="_blank">বাংলাদেশ কম্পিউটার কাউন্সিল</a>
-                    <a href="#" target="_blank">সি এন এস</a>
-                    <a href="#" target="_blank">ছদাহা.com</a>
-                    <a href="#" target="_blank">সাতকানিয়া উপজেলা</a>
+                    <a href="https://bloodboard.chadaha.com/" target="_blank">ব্লাড বোর্ড</a>
+                    <a href="#" target="_blank">ছদাহা ফুড ব্যাংক</a>
+                    <a href="#" target="_blank">হেলথ এইড</a>
+                    <a href="#" target="_blank">লিগ্যাল এইড</a>
+                    <a href="https://chadaha.com.bd/" target="_blank">ছদাহা.CoM</a>
                 </div>
             </div>
             <div class="col-md-2 pt-2">
                 <h4 class="text-primary"><b>পেইজ সমূহ</b></h4>
                 <div class="pt-3 list">
-                    <a href="#" target="_blank">হোম</a>
-                    <a href="#" target="_blank">আমমাদের সম্পর্কে</a>
-                    <a href="#" target="_blank">বই সমূহ</a>
-                    <a href="#" target="_blank">একাডেমিক বই</a>
-                    <a href="#" target="_blank">যোগাযোগ</a>
+                    <a href="{{ route('home') }}" target="_blank">হোম</a>
+                    <a href="{{ route('home.about-us') }}" target="_blank">আমমাদের সম্পর্কে</a>
+                    <a href="{{ route('home.books') }}" target="_blank">বই সমূহ</a>
+                    <a href="{{ route('home.academic-books') }}" target="_blank">একাডেমিক বই</a>
+                    <a href="{{ route('home.contact-us') }}" target="_blank">যোগাযোগ</a>
                 </div>
             </div>
             <div class="col-md-3 pt-2">

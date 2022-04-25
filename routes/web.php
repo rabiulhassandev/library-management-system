@@ -41,4 +41,7 @@ Route::prefix('/')->group(function () {
     Route::post('/contact-us', [HomeController::class, 'contactUsFrom'])->name('home.contact-us-form');
     Route::post('/user-registration', [HomeController::class, 'userRegistration'])->name('home.user-registration');
 
+
+    Route::post('/search', [HomeController::class, 'search'])->name('home.search');
+
 });

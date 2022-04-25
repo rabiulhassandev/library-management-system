@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AcademicBook;
+use App\Models\Book;
 use App\Models\User;
 use App\Models\Slider;
+use App\Models\Profile;
+use App\Models\Category;
 use App\Models\ContactUs;
 use App\Models\Admin\Role;
 use Illuminate\Support\Str;
+use App\Models\AcademicBook;
 use Illuminate\Http\Request;
+use App\Models\BookTransition;
 use App\Models\Admin\UserStatus;
 use App\Models\Admin\PageBuilder;
-use App\Models\Book;
-use App\Models\BookTransition;
-use App\Models\Category;
-use App\Models\Profile;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -25,8 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $collection['sliders'] = Slider::cacheData()->where('status', 'Active');
-        $collection['books'] = Book::cacheData();
-        $collection['categories'] = Category::cacheData();
+        $collection['books'] = DB::table('books')->limit(10)->get();
+        $collection['categories'] = DB::table('categories')->limit(10)->get();
         $collection['profiles'] = Profile::cacheData();
 
         return \view('pages.front.home', \compact('collection'));
@@ -80,9 +81,12 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $collection['about-us'] = PageBuilder::cacheData()->where('slug', 'about-us');
+
+        $collection['advisor-profiles'] = Profile::cacheData()->where('type', 'Advisor');
         $collection['mentor-profiles'] = Profile::cacheData()->where('type', 'Mentor');
         $collection['founder-profiles'] = Profile::cacheData()->where('type', 'Founder');
         $collection['volunteer-profiles'] = Profile::cacheData()->where('type', 'Volunteer');
+        $collection['campus-representative-profiles'] = Profile::cacheData()->where('type', 'Campus Representative');
 
         return \view('pages.front.about-us', compact('collection'));
     }
@@ -169,4 +173,17 @@ class HomeController extends Controller
         Session::flash('success', 'আপনার রিকুয়েস্ট সফল ভাবে পাঠানো হয়েছে। এডমিন যদি আপনার রিকুয়েস্ট এপ্রোভ করে তাহলে আপনি একটি মেইল পাবেন।');
         return \redirect()->route('home.book-details', $book->id);
     }
+
+
+    public function search(Request $request){
+
+        $request->validate([
+            'search' => 'required',
+        ]);
+
+        $collection = Book::where('book_name','LIKE','%'.$request->search.'%')->get();
+
+        return \redirect()->route('home.books', ['collection'=>$collection]);
+    }
+
 }

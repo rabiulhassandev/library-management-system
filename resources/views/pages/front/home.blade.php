@@ -8,7 +8,9 @@
         <div class="container py-3">
             <div class="owl-carousel owl-theme" id="carousel-slider">
                 @foreach ($collection['sliders'] as $slider)
-                    <div class="item" style="background-image: url('{{ image_url($slider->image) }}')"></div>
+                    <div class="item overflow-hidden">
+                        <img src="{{ image_url($slider->image) }}" class="w-100">
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -27,7 +29,7 @@
                 <div class="card-body">
                     <div class="row pb-3">
                         <div class="col-md-6">
-                            <h3 class="py-2 text-primary text-left m-0"><b>সম্প্রতি বইসমূহ</b></h3>
+                            <h3 class="py-2 text-primary text-left m-0"><b>নতুন যুক্ত বইসমূহ</b></h3>
                         </div>
                         <div class="col-md-6">
                             <div class="text-end">
@@ -47,7 +49,7 @@
                         @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="{{ route('home.books') }}" class="default-btn">সমস্ত বই দেখুন</a>
+                        <a href="{{ route('home.books') }}" class="default-btn">সব বই দেখুন</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +88,7 @@
                         @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="{{ route('home.categories') }}" class="default-outline-btn">সমস্ত ক্যাটাগরি দেখুন</a>
+                        <a href="{{ route('home.categories') }}" class="default-outline-btn">সব ক্যাটাগরি দেখুন</a>
                     </div>
                 </div>
             </div>

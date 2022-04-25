@@ -25,7 +25,7 @@
                                     <b class="text-danger">{{ $item->book_status }}</b>
                                 @endif
                             </p>
-                            <p class="mb-1">লাইব্রেরিঃ <b>{{ $item->library->library_name }}</b></p>
+                            <p class="mb-1">লাইব্রেরিঃ <b>{{ $item->library != null ? $item->library->library_name : '' }}</b></p>
                             <p class="mb-1">তারিখঃ <b>{{ $item->book_created }}</b></p>
                             <p class="mb-1">বিবরণঃ <small>{{ $item->book_description }}</small></p>
 

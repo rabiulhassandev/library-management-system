@@ -5,10 +5,10 @@
                 <h4 class="text-primary text-center"><b>ছদাহা ডিজিটাল লাইব্রেরি</b></h4>
             </div>
             <div class="col-md-6 pt-3">
-                <form action="#" method="POST">
+                <form action="{{ route('home.search') }}" method="POST">
                     @csrf
                     <div class="d-flex justify-content-center">
-                        <input type="text" class="form-control" placeholder="সার্চ করুন..." required>
+                        <input type="text" name="search" class="form-control" placeholder="এখানে বই খুঁজুন..." required>
                         <button class="default-btn">সাবমিট</button>
                     </div>
                 </form>
@@ -17,11 +17,11 @@
                 <div class="d-flex justify-content-lg-end justify-content-center">
 
                     @guest
-                        <a href="/registration" class="default-outline-btn">রেজিষ্ট্রেশন</a>
+                        <a href="{{ route('home.registration') }}" class="default-outline-btn">রেজিষ্ট্রেশন</a>
                         <a href="/login" class="default-btn mx-1">লগইন</a>
                     @else
                     <x-logout class="default-outline-btn">লগআউট</x-logout>
-                    <a href="/dashboard" class="default-btn mx-1">ড্যাশবোর্ড</a>
+                    <a href="/dashboard" class="default-btn mx-1">প্রোফাইল</a>
                     @endguest
                 </div>
 
@@ -40,22 +40,22 @@
                 <div class="mx-auto"></div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">হোম</a>
+                        <a class="nav-link" href="{{ route('home') }}">হোম</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/books">বই সমূহ</a>
+                        <a class="nav-link" href="{{ route('home.books') }}">বই সমূহ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/academic-books">একাডেমিক বই</a>
+                        <a class="nav-link" href="{{ route('home.academic-books') }}">একাডেমিক বই</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories">ক্যাটাগরি</a>
+                        <a class="nav-link" href="{{ route('home.categories') }}">ক্যাটাগরি</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about-us">আমাদের সম্পর্কে</a>
+                        <a class="nav-link" href="{{ route('home.about-us') }}">আমাদের সম্পর্কে</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact-us">যোগাযোগ</a>
+                        <a class="nav-link" href="{{ route('home.contact-us') }}">যোগাযোগ</a>
                     </li>
                 </ul>
             </div>

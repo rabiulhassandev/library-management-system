@@ -94,11 +94,42 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
+                                <label for="facebook" class="font-weight-bold">Facebook</label>
+                                <input type="text" class="form-control" name="facebook" id="facebook" placeholder="Enter facebook..."
+                                    value="{{ isset($item)?$item->facebook:old('facebook') }}" required>
+                                @error('facebook')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="whatsApp" class="font-weight-bold">whatsApp</label>
+                                <input type="text" class="form-control" name="whatsApp" id="whatsApp" placeholder="Enter whatsApp..."
+                                    value="{{ isset($item)?$item->whatsApp:old('whatsApp') }}" required>
+                                @error('whatsApp')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="description" class="font-black">Description</label>
+                                <textarea id="elm1" name="description">{!! isset($item)?$item->description:old('description') !!}</textarea>
+                                @error('description')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
                                 <label for="type" class="font-black">Type</label>
                                 <x-select2 name="type" class="form-control" required>
-                                    <option value="Mentor">Mentor</option>
+                                    <option value="Advisor">Advisor</option>
+                                    <option value="Mentor" {{ isset($item)? $item->type == 'Mentor' ? 'selected' : '' : ''  }}>Mentor</option>
                                     <option value="Founder" {{ isset($item)? $item->type == 'Founder' ? 'selected' : '' : ''  }}>Founder</option>
                                     <option value="Volunteer" {{ isset($item)? $item->type == 'Volunteer' ? 'selected' : '' : ''  }}>Volunteer</option>
+                                    <option value="Campus Representative" {{ isset($item)? $item->type == 'Campus Representative' ? 'selected' : '' : ''  }}>Campus Representative</option>
                                 </x-select2>
                                 @error('type')
                                 <p class="text-danger pt-2">{{ $message }}</p>

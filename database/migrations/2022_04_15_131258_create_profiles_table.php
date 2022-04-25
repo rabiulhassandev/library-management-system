@@ -19,6 +19,9 @@ class CreateProfilesTable extends Migration
             $table->string('designation')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('whatsApp')->nullable();
+            $table->longText('description')->nullable();
             $table->string('address')->nullable();
             $table->string('image')->default('default.jpg');
             $table->string('type')->nullable();

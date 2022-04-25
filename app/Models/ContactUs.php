@@ -15,6 +15,8 @@ class ContactUs extends Model
         'phone',
         'subject',
         'description',
+        'contact_type',
+        'address',
         'created',
     ];
 
