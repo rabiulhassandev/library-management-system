@@ -22,9 +22,27 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+    /**
+    * Middleware
+    *
+    *
+    */
+   public function __construct()
+   {
+        \config_set('theme.cdata', [
+            'title' => 'ছদাহা ডিজিটাল লাইব্রেরি',
+            'description' => 'ছদাহা ডিজিটাল লাইব্রেরি বইকে জনসাধারণের কাছে সহজলভ্য করে সমাজে পাঠক সৃষ্টি এবং নিয়মিত পাঠককে বইয়ের সংস্পর্শে থাকার সুযোগ করে দিয়ে মানসিক ইতিবাচক পরিবর্তনে বিশেষ ভূমিকা রাখবে। প্রকল্পটি কোন নির্দিষ্ট শ্রেণী, ধর্ম, বর্ণ কিংবা গোষ্ঠীর জন্য গৃহীত হয়নি, বরঞ্চ সর্বসাধারণের মাঝে বই পড়ার সুযোগ সৃষ্টি ও উদ্দীপনা ছড়িয়ে দেওয়ার প্রয়াস চালিয়ে যাবে। বই পাঠকের কাছে পৌঁছে দেওয়ার পাশাপাশি স্থায়ী ও বিশেষ পাঠাগারের মাধ্যমে জ্ঞান বিতরণের কাজকে এগিয়ে নিতে বিশেষ ভূমিকা রাখবে ছদাহা ডিজিটাল লাইব্রেরি।',
+        ]);
+    }
+
+
     // Home Page
     public function index()
     {
+        $this->seo()->setTitle(config('theme.cdata.title'));
+        $this->seo()->setDescription(\config('theme.cdata.description'));
+
+
         $collection['sliders'] = Slider::cacheData()->where('status', 'Active');
         $collection['books'] = DB::table('books')->limit(10)->get();
         $collection['categories'] = DB::table('categories')->limit(10)->get();

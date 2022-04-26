@@ -10,12 +10,12 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => env('APP_NAME', 'Laravel Project'), // set false to total remove
+            'title'        => env('APP_NAME', 'ছদাহা ডিজিটাল লাইব্রেরি'), // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'iqbalhasan.dev is a portfolio and multipurpose website. This website will be used primarily as a portfolio of Rabiul Hassan and will be used for public blogging, open source packages, free tutorials and client management through several subdomains.', // set false to total remove
+            'description'  => 'ছদাহা ডিজিটাল লাইব্রেরি বইকে জনসাধারণের কাছে সহজলভ্য করে সমাজে পাঠক সৃষ্টি এবং নিয়মিত পাঠককে বইয়ের সংস্পর্শে থাকার সুযোগ করে দিয়ে মানসিক ইতিবাচক পরিবর্তনে বিশেষ ভূমিকা রাখবে। প্রকল্পটি কোন নির্দিষ্ট শ্রেণী, ধর্ম, বর্ণ কিংবা গোষ্ঠীর জন্য গৃহীত হয়নি, বরঞ্চ সর্বসাধারণের মাঝে বই পড়ার সুযোগ সৃষ্টি ও উদ্দীপনা ছড়িয়ে দেওয়ার প্রয়াস চালিয়ে যাবে। বই পাঠকের কাছে পৌঁছে দেওয়ার পাশাপাশি স্থায়ী ও বিশেষ পাঠাগারের মাধ্যমে জ্ঞান বিতরণের কাজকে এগিয়ে নিতে বিশেষ ভূমিকা রাখবে ছদাহা ডিজিটাল লাইব্রেরি।', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [
-                'iqbal', 'hasan', 'dev', 'iqbalhasandev', 'Rabiul Hassan dev', 'Rabiul Hassan', 'iqbalhasan.dev', 'iqbalhasndev', 'web', 'developer', 'open source package', 'laravel', 'laravel developer', 'web designer', 'node js developer', 'vue js developer'
+                'ছদাহা ডিজিটাল লাইব্রেরি', 'বই', 'ছদাহা', 'ডিজিটাল লাইব্রেরি', 'ছদাহা লাইব্রেরি', 'ছদাহা.CoM', 'Chadaha', 'Chadaha Library', 'Chadaha Online Library', 'Digital Library', 'Rabiul Hassan', 'rabiulhassandev',
             ],
             'canonical'    => null, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => 'all', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
