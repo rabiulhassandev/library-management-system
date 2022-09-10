@@ -5,10 +5,10 @@
                 <h4 class="text-primary text-center"><b>ছদাহা ডিজিটাল লাইব্রেরি</b></h4>
             </div>
             <div class="col-md-6 pt-3">
-                <form action="{{ route('home.search') }}" method="POST">
+                <form action="{{ route('home.books') }}" method="GET">
                     @csrf
                     <div class="d-flex justify-content-center">
-                        <input type="text" name="search" class="form-control" placeholder="এখানে বই খুঁজুন..." required>
+                        <input type="text" name="search" class="form-control" placeholder="এখানে বই খুঁজুন..." value="{{ request()->search ?? '' }}" required>
                         <button class="default-btn">সাবমিট</button>
                     </div>
                 </form>
@@ -28,10 +28,10 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ front_asset('images/logo.png') }}" class="logo">
+            <a class="navbar-brand p-0" href="{{ route('home') }}">
+                <img src="{{ front_asset('images/logo-white.png') }}" class="logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,6 +41,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">হোম</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home.libraries') }}">স্থানীয় লাইব্রেরি</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home.books') }}">বই সমূহ</a>

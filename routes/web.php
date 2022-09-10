@@ -23,6 +23,8 @@ use App\Http\Controllers\RedirectController;
 
 Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/libraries', [HomeController::class, 'libraries'])->name('home.libraries');
+    Route::get('/library-details/{library}', [HomeController::class, 'libraryDetails'])->name('home.library-details');
     Route::get('/books', [HomeController::class, 'books'])->name('home.books');
     Route::get('/book-details/{book}', [HomeController::class, 'bookDetails'])->name('home.book-details');
     Route::get('/academic-books', [HomeController::class, 'academicBooks'])->name('home.academic-books');

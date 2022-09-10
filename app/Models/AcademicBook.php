@@ -14,6 +14,8 @@ class AcademicBook extends Model
         'book_name',
         'class_name',
         'owner_name',
+        'phone',
+        'book_address',
         'description',
         'image',
         'created',

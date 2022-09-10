@@ -45,6 +45,10 @@
                         <hr>
                         <p class="m-0 font-weight-400">Owner Name: <b>{{ $item->owner_name }}</b></p>
                         <hr>
+                        <p class="m-0 font-weight-400">Phone No: <b>{{ $item->phone }}</b></p>
+                        <hr>
+                        <p class="m-0 font-weight-400">Address: <b>{{ $item->book_address }}</b></p>
+                        <hr>
                         <p class="m-0 font-weight-400">
                             Book Status:
                             <b>

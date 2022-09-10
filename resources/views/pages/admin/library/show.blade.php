@@ -47,6 +47,8 @@
                         <hr>
                         <p class="m-0 font-weight-400">Library Map: <a href="{{ $item->library_map }}" class="btn btn-primary btn-sm" target="_blank">Go To Map</a></p>
                         <hr>
+                        <p class="m-0 font-weight-400">Office Time: <b>{{ $item->office_time }}</b></p>
+                        <hr>
                         <p class="m-0 font-weight-400">Library Description: <b>{{ $item->library_description }}</b></p>
                     </div>
                 </div>

@@ -114,7 +114,7 @@ class BookController extends Controller
             'book_map' => 'required',
             'book_status' => 'required',
             'category_id' => 'required',
-            'writer_id' => 'required',
+            'writer_name' => 'required',
         ]);
         $data = $request->all();
         $data['book_slug'] = Str::slug($request->book_name);
@@ -200,7 +200,7 @@ class BookController extends Controller
             'book_map' => 'required',
             'book_status' => 'required',
             'category_id' => 'required',
-            'writer_id' => 'required',
+            'writer_name' => 'required',
         ]);
         $data = $request->all();
         $data['book_slug'] = Str::slug($request->book_name);

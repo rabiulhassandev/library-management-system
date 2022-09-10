@@ -114,7 +114,7 @@
                         <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
                                 <label for="book_owner_unique_id" class="font-weight-bold">Book Owner Unique Id</label>
-                                <input type="number" class="form-control" name="book_owner_unique_id" id="book_owner_unique_id" placeholder="Enter book owner unique id (Number)"
+                                <input type="text" class="form-control" name="book_owner_unique_id" id="book_owner_unique_id" placeholder="Enter book owner unique id"
                                     value="{{ isset($item)?$item->book_owner_unique_id:old('book_owner_unique_id') }}" required>
                                 @error('book_owner_unique_id')
                                 <p class="text-danger pt-2">{{ $message }}</p>
@@ -134,7 +134,7 @@
                         <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
                                 <label for="book_publisher" class="font-weight-bold">Book Publisher</label>
-                                <input type="text" class="form-control" name="book_publisher" id="book_publisher" placeholder="Enter book Publisher (Number)"
+                                <input type="text" class="form-control" name="book_publisher" id="book_publisher" placeholder="Enter book Publisher"
                                     value="{{ isset($item)?$item->book_publisher:old('book_publisher') }}" required>
                                 @error('book_publisher')
                                 <p class="text-danger pt-2">{{ $message }}</p>
@@ -160,18 +160,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
-                                <label for="writer_id" class="font-black">Book Writer</label>
-                                <x-select2 name="writer_id" class="form-control" required>
-                                    <option value="">-- Select Book Writer --</option>
-                                    @foreach (App\Models\BookWriter::cacheData() as $key=>$value)
-                                    <option value="{{ $value->id }}" {{ selected($value->id,
-                                        isset($item)?$item->writer_id:old('writer_id')) }}>
-                                        {{ $value->writer_name }}
-                                    </option>
-                                    @endforeach
-                                </x-select2>
-                                @error('writer_id')
-                                <p class="text-danger pt-2">{{ $message }}</p>
+                                <label for="writer_name" class="font-weight-bold">Book Writer</label>
+                                <input type="text" class="form-control" name="writer_name" id="writer_name" placeholder="Enter Book Writer name..." value="{{ isset($item)?$item->writer_name:old('writer_name') }}">
+                                @error('writer_name')
+                                    <p class="text-danger pt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>

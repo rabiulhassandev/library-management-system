@@ -43,7 +43,7 @@
                         <hr>
                         <p class="m-0 font-weight-400">Book Category: <b>{{ $item->category->category_name }}</b></p>
                         <hr>
-                        <p class="m-0 font-weight-400">Book Writer: <b>{{ $item->bookWriter->writer_name }}</b></p>
+                        <p class="m-0 font-weight-400">Book Writer: <b>{{ $item->writer_name }}</b></p>
                         <hr>
                         <p class="m-0 font-weight-400">Book Library: <b>{{ $item->library_id == '' ? '' : $item->library->library_name }}</b></p>
                         <hr>

@@ -72,6 +72,26 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="phone" class="font-weight-bold">Phone No</label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone No"
+                                    value="{{ isset($item)?$item->phone:old('phone') }}" required>
+                                @error('phone')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="book_address" class="font-weight-bold">Book Address</label>
+                                <input type="text" class="form-control" name="book_address" id="book_address" placeholder="Enter Book Address"
+                                    value="{{ isset($item)?$item->book_address:old('book_address') }}" required>
+                                @error('book_address')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group pt-1 pb-1">
                                 <label for="description" class="font-weight-bold">Description</label>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Book;
 use App\Traits\WithCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ class Library extends Model
         'library_phone',
         'library_address',
         'library_map',
+        'office_time',
         'library_description',
         'library_image',
     ];
@@ -25,6 +27,6 @@ class Library extends Model
     // All Books
     public function books()
     {
-        return $this->hasMany(Library::class, 'library_id');
+        return $this->hasMany(Book::class, 'library_id');
     }
 }

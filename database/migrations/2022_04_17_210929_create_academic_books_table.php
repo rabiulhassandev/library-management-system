@@ -18,6 +18,8 @@ class CreateAcademicBooksTable extends Migration
             $table->string('book_name')->nullable();
             $table->string('class_name')->nullable();
             $table->string('owner_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('book_address')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->default('default.png');
             $table->string('created')->nullable();

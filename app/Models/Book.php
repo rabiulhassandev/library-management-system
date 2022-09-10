@@ -24,6 +24,7 @@ class Book extends Model
         'book_publisher',
         'book_address',
         'book_map',
+        'writer_name',
         'book_status',
         'book_pdf',
         'book_image',

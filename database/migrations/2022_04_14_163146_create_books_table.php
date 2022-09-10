@@ -26,6 +26,7 @@ class CreateBooksTable extends Migration
             $table->string('book_publisher')->nullable();
             $table->string('book_address')->nullable();
             $table->string('book_map')->nullable();
+            $table->string('writer_name')->nullable();
             $table->string('book_status')->default('available');
             $table->string('book_pdf')->nullable();
             $table->string('book_image')->nullable();

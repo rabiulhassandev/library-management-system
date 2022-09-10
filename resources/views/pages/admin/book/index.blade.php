@@ -58,7 +58,7 @@
                             {{ $item->book_name }}
                         </td>
                         <td>
-                            {{$item->bookWriter->writer_name}}
+                            {{$item->writer_name}}
                         </td>
                         <td>
                             {{$item->category->category_name}}

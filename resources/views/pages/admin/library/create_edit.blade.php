@@ -84,6 +84,16 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group pt-1 pb-1">
+                                <label for="office_time" class="font-weight-bold">Office Time</label>
+                                <input type="text" class="form-control" name="office_time" id="office_time" placeholder="Enter Office Time..."
+                                    value="{{ isset($item)?$item->office_time:old('office_time') }}">
+                                @error('office_time')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group pt-1 pb-1">
                                 <label for="library_description" class="font-weight-bold">Library Description</label>
                                 <textarea name="library_description" class="form-control" placeholder="Write Library Description..." style="min-height: 120px;">{!! isset($item)?$item->library_description:old('library_description') !!}</textarea>
                                 @error('library_description')

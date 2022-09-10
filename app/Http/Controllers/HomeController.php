@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Models\BookTransition;
 use App\Models\Admin\UserStatus;
 use App\Models\Admin\PageBuilder;
+use App\Models\Library;
 use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Rules\Password;
 use Illuminate\Support\Facades\Hash;
@@ -51,12 +52,38 @@ class HomeController extends Controller
         return \view('pages.front.home', \compact('collection'));
     }
 
-    // Books Page
-    public function books()
+    // Library Page
+    public function libraries(Request $request)
     {
-        $collection = Book::cacheData();
+        $collection = Library::cacheData();
+        return \view('pages.front.libraries', \compact('collection'));
+    }
+
+    // library Details Page
+    public function libraryDetails(Library $library)
+    {
+        $books = Book::where('library_id', $library->id)->get();
+
+        return \view('pages.front.library-details', ['item' => $library, 'books' => $books]);
+    }
+
+    // Books Page
+    public function books(Request $request)
+    {
+        $collection = new Book();
+
+        $collection = $collection->where(function ($collection) use ($request) {
+            $collection->where('book_name', 'LIKE', "%{$request->search}%");
+            $collection->orWhere('book_owner', 'LIKE', "%{$request->search}%");
+            $collection->orWhere('book_owner_unique_id', 'LIKE', "%{$request->search}%");
+            $collection->orWhere('book_description', 'LIKE', "%{$request->search}%");
+            $collection->orWhere('book_publisher', 'LIKE', "%{$request->search}%");
+            $collection->orWhere('book_address', 'LIKE', "%{$request->search}%");
+        });
+        $collection = $collection->get();
         return \view('pages.front.books', \compact('collection'));
     }
+
 
     // Book Details Page
     public function bookDetails(Book $book)

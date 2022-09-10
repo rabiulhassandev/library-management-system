@@ -12,7 +12,7 @@
                         <div class="col-md-9">
                             <h4>নামঃ <span class="text-primary"> {{ $item->book_name }}</span></h4>
                             <p class="mb-1">ক্যাটাগরিঃ <b>{{ $item->category->category_name }}</b></p>
-                            <p class="mb-1">লেখকঃ <b>{{ $item->bookWriter->writer_name }}</b></p>
+                            <p class="mb-1">লেখকঃ <b>{{ $item->writer_name }}</b></p>
                             <p class="mb-1">দাতাঃ <b>{{ $item->book_owner }}</b></p>
                             <p class="mb-1">পেইজঃ <b>{{ $item->book_pages }} পৃষ্টা</b></p>
                             <p class="mb-1">মূল্যঃ <b>{{ $item->book_price }} টাকা</b></p>

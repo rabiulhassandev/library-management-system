@@ -20,6 +20,7 @@ class CreateLibrariesTable extends Migration
             $table->text('library_phone')->nullable();
             $table->text('library_address')->nullable();
             $table->text('library_map')->nullable();
+            $table->text('office_time')->nullable();
             $table->text('library_description')->nullable();
             $table->text('library_image')->default('default.jpg');
             $table->timestamps();

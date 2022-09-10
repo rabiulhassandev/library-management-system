@@ -13,6 +13,8 @@
                             <h4>নামঃ <span class="text-primary"> {{ $item->book_name }}</span></h4>
                             <p class="mb-1">শ্রেণিঃ <b>{{ $item->class_name }}</b></p>
                             <p class="mb-1">দাতাঃ <b>{{ $item->owner_name }}</b></p>
+                            <p class="mb-1">ফোনঃ <b>{{ $item->phone }}</b></p>
+                            <p class="mb-1">ঠিকানাঃ <b>{{ $item->book_address }}</b></p>
                             <p class="mb-1">
                                 স্টেটাসঃ
                                 @if ($item->status == 'Active')
