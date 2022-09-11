@@ -6,7 +6,7 @@
                 @isset($collection)
                 @if(count($collection) > 0)
                     @foreach ($collection as $library)
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-4 mt-3">
                             <div class="card border-0 rounded shadow overflow-hidden">
                                 <img src="{{ image_url($library->library_image) }}" onerror="this.src='{{ front_asset('images/library.jpg') }}'" class="w-100">
                                 <h4 class="pt-2 text-center"><a href="{{ route('home.library-details', $library->id) }}" class="p-2 m-0" style="text-decoration: none;">{{ $library->library_name }}</a></h4>

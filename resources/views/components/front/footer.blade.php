@@ -22,7 +22,7 @@
                 <div class="pt-3 list">
                     <a href="https://bloodboard.chadaha.com/" target="_blank">ব্লাড বোর্ড</a>
                     <a href="#" target="_blank">ছদাহা ফুড ব্যাংক</a>
-                    <a href="#" target="_blank">হেলথ এইড</a>
+                    <a href="https://villagecare.chadaha.com/" target="_blank">ভিলেজ কেয়ার</a>
                     <a href="#" target="_blank">লিগ্যাল এইড</a>
                     <a href="https://chadaha.com.bd/" target="_blank">ছদাহা.CoM</a>
                 </div>

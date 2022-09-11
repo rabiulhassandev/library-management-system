@@ -42,12 +42,22 @@
 
 
                     <div class=" row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
                                 <label for="book_name" class="font-weight-bold">Book Name</label>
                                 <input type="text" class="form-control" name="book_name" id="book_name" placeholder="Enter book name..."
                                     value="{{ isset($item)?$item->book_name:old('book_name') }}" required>
                                 @error('book_name')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
+                                <label for="book_unique_id" class="font-weight-bold">Book Unique Id</label>
+                                <input type="text" class="form-control" name="book_unique_id" id="book_unique_id" placeholder="Enter book unique id"
+                                    value="{{ isset($item)?$item->book_unique_id:old('book_unique_id') }}" required>
+                                @error('book_unique_id')
                                 <p class="text-danger pt-2">{{ $message }}</p>
                                 @enderror
                             </div>

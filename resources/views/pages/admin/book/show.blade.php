@@ -41,6 +41,8 @@
                     <div class="card-body">
                         <p class="m-0 font-weight-400">Book Name: <b>{{ $item->book_name }}</b></p>
                         <hr>
+                        <p class="m-0 font-weight-400">Book Unique ID: <b>{{ $item->book_unique_id }}</b></p>
+                        <hr>
                         <p class="m-0 font-weight-400">Book Category: <b>{{ $item->category->category_name }}</b></p>
                         <hr>
                         <p class="m-0 font-weight-400">Book Writer: <b>{{ $item->writer_name }}</b></p>

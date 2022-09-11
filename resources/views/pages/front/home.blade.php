@@ -5,7 +5,7 @@
     @isset($collection['sliders'])
     @if (count($collection['sliders']) > 0)
     <section id="slider_section">
-        <div class="container py-3">
+        <div class="container pt-3">
             <div class="owl-carousel owl-theme" id="carousel-slider">
                 @foreach ($collection['sliders'] as $slider)
                     <div class="item overflow-hidden">
@@ -19,12 +19,15 @@
     @endisset
     {{-- Slider Section --}}
 
+    <div class="py-1 pt-2">
+        <marquee behavior="" direction="left">শীঘ্রই শুভ উদ্বোধন হতে যাচ্ছে  ভিলেজ কমিউনিটি পর্যায়ে দেশের প্রথম ডিজিটাল লাইব্রেরি "ছদাহা ডিজিটাল লাইব্রেরি"</marquee>
+    </div>
 
     {{-- Recently Books Section --}}
     @isset($collection['books'])
     @if (count($collection['books']) > 0)
     <section id="recent_books_section">
-        <div class="container py-4">
+        <div class="container pb-4">
             <div class="card shadow border-0" style="border-radius: 0px">
                 <div class="card-body">
                     <div class="row pb-3">
