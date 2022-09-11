@@ -136,6 +136,12 @@ class HomeController extends Controller
         return \view('pages.front.about-us', compact('collection'));
     }
 
+    // Profile Details Page
+    public function profileDetails(Profile $profile)
+    {
+        return \view('pages.front.profile-details', ['item' => $profile]);
+    }
+
     // Categories Page
     public function categories()
     {

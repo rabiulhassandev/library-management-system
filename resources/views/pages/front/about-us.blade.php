@@ -29,9 +29,9 @@
                         <div class="card-body">
                             <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}">
                             <div style="margin-top: -20px; padding-bottom: 20px;">
-                                <a href="#"><span class="bx bx-plus"></span></a>
+                                <a href="{{ route('home.profile-details', $profile->id) }}"><span class="bx bx-plus"></span></a>
                             </div>
-                            <a href="#"><h4>{{ $profile->name }}</h4></a>
+                            <a href="{{ route('home.profile-details', $profile->id) }}"><h4>{{ $profile->name }}</h4></a>
                             <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
                         </div>
                     </div>
@@ -55,9 +55,9 @@
                         <div class="card-body">
                             <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}">
                             <div style="margin-top: -20px; padding-bottom: 20px;">
-                                <a href="#"><span class="bx bx-plus"></span></a>
+                                <a href="{{ route('home.profile-details', $profile->id) }}"><span class="bx bx-plus"></span></a>
                             </div>
-                            <a href="#"><h4>{{ $profile->name }}</h4></a>
+                            <a href="{{ route('home.profile-details', $profile->id) }}"><h4>{{ $profile->name }}</h4></a>
                             <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
         @isset($collection['founder-profiles'])
         @if(count($collection['founder-profiles']) > 0)
         <div class="container py-3">
-            <h3 class="text-primary pb-2">ফাউন্ডার টিম</h3>
+            <h3 class="text-primary pb-2">এক্সিকিউটিভ প্যানেল</h3>
             <div class="row">
                 @foreach ($collection['founder-profiles'] as $profile)
                 <div class="col-lg-3 col-md-4 col-sm-6 mt-2">
@@ -81,9 +81,9 @@
                         <div class="card-body">
                             <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}">
                             <div style="margin-top: -20px; padding-bottom: 20px;">
-                                <a href="#"><span class="bx bx-plus"></span></a>
+                                <a href="{{ route('home.profile-details', $profile->id) }}"><span class="bx bx-plus"></span></a>
                             </div>
-                            <a href="#"><h4>{{ $profile->name }}</h4></a>
+                            <a href="{{ route('home.profile-details', $profile->id) }}"><h4>{{ $profile->name }}</h4></a>
                             <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
                         </div>
                     </div>
@@ -107,9 +107,9 @@
                         <div class="card-body">
                             <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}">
                             <div style="margin-top: -20px; padding-bottom: 20px;">
-                                <a href="#"><span class="bx bx-plus"></span></a>
+                                <a href="{{ route('home.profile-details', $profile->id) }}"><span class="bx bx-plus"></span></a>
                             </div>
-                            <a href="#"><h4>{{ $profile->name }}</h4></a>
+                            <a href="{{ route('home.profile-details', $profile->id) }}"><h4>{{ $profile->name }}</h4></a>
                             <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
                         </div>
                     </div>
@@ -136,9 +136,9 @@
                         <div class="card-body">
                             <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}">
                             <div style="margin-top: -20px; padding-bottom: 20px;">
-                                <a href="#"><span class="bx bx-plus"></span></a>
+                                <a href="{{ route('home.profile-details', $profile->id) }}"><span class="bx bx-plus"></span></a>
                             </div>
-                            <a href="#"><h4>{{ $profile->name }}</h4></a>
+                            <a href="{{ route('home.profile-details', $profile->id) }}"><h4>{{ $profile->name }}</h4></a>
                             <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
                         </div>
                     </div>

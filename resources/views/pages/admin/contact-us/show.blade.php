@@ -36,7 +36,11 @@
                     <div class="card-body">
                         <p class="m-0 font-weight-400">Name: <b>{{ $item->name }}</b></p>
                         <hr>
+                        <p class="m-0 font-weight-400">Address: <b>{{ $item->address }}</b></p>
+                        <hr>
                         <p class="m-0 font-weight-400">Phone: <b>{{ $item->phone }}</b></p>
+                        <hr>
+                        <p class="m-0 font-weight-400">Contact Type: <b>{{ $item->contact_type }}</b></p>
                         <hr>
                         <p class="m-0 font-weight-400">Subject: <b>{{ $item->subject }}</b></p>
                         <hr>

@@ -36,6 +36,7 @@ Route::prefix('/')->group(function () {
     Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('home.about-us');
     Route::get('/registration', [HomeController::class, 'registration'])->name('home.registration');
     Route::get('/page/{page}', [HomeController::class, 'page'])->name('home.page');
+    Route::get('/profile-details/{profile}', [HomeController::class, 'profileDetails'])->name('home.profile-details');
 
     Route::post('/book-request-send/{book}', [HomeController::class, 'bookRequestSend'])->name('home.book-request-send')->middleware(['auth', 'role:User']);
 
