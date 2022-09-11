@@ -34,7 +34,7 @@
                                     <a href="{{ image_url($item->book_pdf) }}" class="default-outline-btn" target="_blank">একটু পড়ে দেখুন</a>
                                 @endif
                                 @if ($item->book_status == 'Available')
-                                <a href="{{ route('home.book-request', $item->id) }}" class="default-btn">রিকুয়েস্ট পাঠান</a>
+                                <a href="{{ route('home.book-request', $item->id) }}" class="default-btn">বইয়ের অনুরোধ পাঠান</a>
                                 @endif
                             </div>
                         </div>
