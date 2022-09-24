@@ -45,9 +45,7 @@ return [
             'type'        => 'Portfolio',
             'site_name'   => env('APP_NAME', 'Laravel Project'),
             'images'      => [
-                env('APP_URL') . 'admin-assets/images/logo-dark.png',
-                env('APP_URL') . 'admin-assets/images/logo-light.png',
-                env('APP_URL') . 'admin-assets/images/logo-sm.png',
+                env('APP_URL') . 'front-assets/images/logo.png',
             ],
         ],
     ],
@@ -70,9 +68,7 @@ return [
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'WebPage',
             'images'      => [
-                env('APP_URL') . 'admin-assets/images/logo-dark.png',
-                env('APP_URL') . 'admin-assets/images/logo-light.png',
-                env('APP_URL') . 'admin-assets/images/logo-sm.png',
+                env('APP_URL') . 'front-assets/images/logo.png',
             ],
         ],
     ],
