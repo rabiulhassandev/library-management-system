@@ -52,7 +52,7 @@
                         @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="{{ route('home.books') }}" class="default-btn">সব বই দেখুন</a>
+                        <a href="{{ route('home.books') }}" class="default-btn">সমস্ত বই দেখুন</a>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                         @endforeach
                     </div>
                     <div class="pt-4 text-center">
-                        <a href="{{ route('home.categories') }}" class="default-outline-btn">সব ক্যাটাগরি দেখুন</a>
+                        <a href="{{ route('home.categories') }}" class="default-outline-btn">সমস্ত ক্যাটাগরি দেখুন</a>
                     </div>
                 </div>
             </div>
@@ -106,34 +106,24 @@
     @isset($collection['profiles'])
     @if (count($collection['profiles']) > 0)
     <section id="member_section">
-        <div class="container py-4">
-            <div class="card shadow border-0" style="border-radius: 0px">
+        <div class="container pb-5">
+            <div class="card shadow border-0 pb-4" style="border-radius: 0px">
                 <div class="card-body">
-                    <div class="row pb-3">
-                        <div class="col-md-6">
-                            <h3 class="py-2 text-primary text-left m-0"><b>সদস্য সমূহ</b></h3>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-end">
-                                <button class="default-btn" id="member-prev" style="min-width: 60px"><i class='bx bxs-chevron-left pt-2'></i></button>
-                                <button class="default-btn" id="member-next" style="min-width: 60px"><i class='bx bxs-chevron-right pt-2'></i></button>
-                            </div>
-                        </div>
+                    <div class="pt-2 pb-5 text-center">
+                        <h3 class="text-primary"><b>বইবন্ধু</b></h3>
+                        <p class="m-0">ঘরে ঘরে বই পৌঁছে দিতে বইবন্ধু আছে আপনার পাশে। দ্রুত বই পেতে আবেদন করে কল করুন।</p>
+                        <div style="width: 150px; line-height: 3px;" class="d-inline-block bg-primary">&nbsp;</div>
                     </div>
+
                     <div class="owl-carousel owl-theme" id="members">
                         @foreach ($collection['profiles'] as $profile)
-                        <div class="item">
-                            <img src="{{ image_url($profile->image) }}">
-                            <h4>{{ $profile->name }}</h4>
-                            <h6 class="m-0 font-italic">{{ $profile->designation }}</h6>
-                            <small class="m-0">{{ $profile->email }}</small><br>
-                            <small class="m-0">{{ $profile->phone }}</small><br>
-                            <small>{{ $profile->address }}</small>
+                        <div class="item p-2 text-center">
+                            <img src="{{ image_url($profile->image) }}" alt="{{ $profile->name }}" class="book_friend_img  my-2">
+                            <h5>{{ $profile->name }}</h5>
+                            <h6 class="m-0 text-secondary">{{ $profile->designation }}</h6>
+                            <a href="#" class="btn btn-danger btn-sm mt-1">কল করুন</a>
                         </div>
                         @endforeach
-                    </div>
-                    <div class="pt-4 text-center">
-                        <a href="{{ route('home.about-us') }}" class="default-btn">সমস্ত দেখুন</a>
                     </div>
                 </div>
             </div>

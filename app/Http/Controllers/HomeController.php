@@ -47,7 +47,7 @@ class HomeController extends Controller
         $collection['sliders'] = Slider::cacheData()->where('status', 'Active');
         $collection['books'] = DB::table('books')->limit(10)->get();
         $collection['categories'] = DB::table('categories')->limit(10)->get();
-        $collection['profiles'] = Profile::cacheData();
+        $collection['profiles'] = Profile::where('type', 'Book Friend')->orderBy('position', 'ASC')->get();
 
         return \view('pages.front.home', \compact('collection'));
     }

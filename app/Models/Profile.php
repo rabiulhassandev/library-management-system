@@ -11,6 +11,7 @@ class Profile extends Model
     use HasFactory, WithCache;
 
     protected $fillable = [
+        'position',
         'name',
         'designation',
         'phone',

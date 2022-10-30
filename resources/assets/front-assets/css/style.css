@@ -189,7 +189,7 @@ body {
 
 /* Members section */
 
-
+/*
 #members .item{
     text-align: center;
     border: 2px solid #079c86;
@@ -221,7 +221,7 @@ body {
 }
 #members .item:hover h4{
     color: white;
-}
+} */
 
 .footer_logo{
     height: 80px;
@@ -374,12 +374,13 @@ body {
     font-weight: bold;
 }
 .member-card img{
-    height: 150px;
-    width: 150px;
+    height: 150px !important;
+    width: 150px !important;
     max-width: 100%;
     margin-top: 10px;
     border: 2px solid #079c86;
     border-radius: 50%;
+    display: inline-block !important;
 }
 .member-card .bx-plus{
     padding: 10px;
@@ -408,4 +409,15 @@ body {
     .top-bar h5{
         text-align: center;
     }
+}
+
+
+.book_friend_img{
+    width: 100px !important;
+    height: 100px !important;
+    padding: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px #0000003b;
+    display: inline-block !important;
 }

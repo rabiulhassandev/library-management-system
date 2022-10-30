@@ -39,6 +39,8 @@
             <div class="col-md-8 mt-2">
                 <div class="card shadow">
                     <div class="card-body">
+                        <p class="m-0 font-weight-400">Position: <b>{{ $item->position }}</b></p>
+                        <hr>
                         <p class="m-0 font-weight-400">Name: <b>{{ $item->name }}</b></p>
                         <hr>
                         <p class="m-0 font-weight-400">Phone: <b>{{ $item->phone }}</b></p>

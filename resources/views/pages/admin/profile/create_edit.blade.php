@@ -44,6 +44,16 @@
                     <div class=" row">
                         <div class="col-md-6">
                             <div class="form-group pt-1 pb-1">
+                                <label for="position" class="font-weight-bold">Position</label>
+                                <input type="number" class="form-control" name="position" id="position" placeholder="Enter Position"
+                                    value="{{ isset($item)?$item->position:old('position') }}" required>
+                                @error('position')
+                                <p class="text-danger pt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group pt-1 pb-1">
                                 <label for="name" class="font-weight-bold">Name</label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Enter name..."
                                     value="{{ isset($item)?$item->name:old('name') }}" required>
@@ -130,6 +140,7 @@
                                     <option value="Founder" {{ isset($item)? $item->type == 'Founder' ? 'selected' : '' : ''  }}>Founder</option>
                                     <option value="Volunteer" {{ isset($item)? $item->type == 'Volunteer' ? 'selected' : '' : ''  }}>Volunteer</option>
                                     <option value="Campus Representative" {{ isset($item)? $item->type == 'Campus Representative' ? 'selected' : '' : ''  }}>Campus Representative</option>
+                                    <option value="Book Friend" {{ isset($item)? $item->type == 'Book Friend' ? 'selected' : '' : ''  }}>Book Friend</option>
                                 </x-select2>
                                 @error('type')
                                 <p class="text-danger pt-2">{{ $message }}</p>
