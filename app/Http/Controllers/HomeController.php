@@ -127,11 +127,11 @@ class HomeController extends Controller
     {
         $collection['about-us'] = PageBuilder::cacheData()->where('slug', 'about-us');
 
-        $collection['advisor-profiles'] = Profile::cacheData()->where('type', 'Advisor');
-        $collection['mentor-profiles'] = Profile::cacheData()->where('type', 'Mentor');
-        $collection['founder-profiles'] = Profile::cacheData()->where('type', 'Founder');
-        $collection['volunteer-profiles'] = Profile::cacheData()->where('type', 'Volunteer');
-        $collection['campus-representative-profiles'] = Profile::cacheData()->where('type', 'Campus Representative');
+        $collection['advisor-profiles'] = Profile::where('type', 'Advisor')->orderBy('position', 'ASC')->get();
+        $collection['mentor-profiles'] = Profile::where('type', 'Mentor')->orderBy('position', 'ASC')->get();
+        $collection['founder-profiles'] = Profile::where('type', 'Founder')->orderBy('position', 'ASC')->get();
+        $collection['volunteer-profiles'] = Profile::where('type', 'Volunteer')->orderBy('position', 'ASC')->get();
+        $collection['campus-representative-profiles'] = Profile::where('type', 'Campus Representative')->orderBy('position', 'ASC')->get();
 
         return \view('pages.front.about-us', compact('collection'));
     }
